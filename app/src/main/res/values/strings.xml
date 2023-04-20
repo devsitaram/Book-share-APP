@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Book Share</string>
+    <string name="remember_me">Remember Me</string>
+    <string name="book_share">Book Share</string>
+    <string name="log_in">Log In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="email_or_username">Email or Username</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="or">OR</string>
+    <string name="id">Id</string>
+    <string name="prices">Prices</string>
+    <string name="rating">Rating</string>
+    <string name="date">Date</string>
+    <string name="title">Title</string>
+    <string name="detail">Detail</string>
+    <string name="download_url">Download URL</string>
+    <string name="author">Author</string>
+    <string name="product">Product</string>
+    <string name="home">Home</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="contract">Contract</string>
+</resources>
