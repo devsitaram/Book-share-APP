@@ -11,7 +11,6 @@ import android.widget.Button;
 
 import com.example.bookshare.MainActivity;
 import com.example.bookshare.R;
-import com.example.bookshare.features.book.BookActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -66,6 +65,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 //        btnCheckBok.setOnClickListener(new View.OnClickListener() {
@@ -108,7 +108,6 @@ public class LoginActivity extends AppCompatActivity {
         logInLayout.setVisibility(View.VISIBLE);
         showLogInPage.setTextColor(getResources().getColor(R.color.textColor, null));
     }
-
     @SuppressLint("UseCompatLoadingForDrawables")
     public void signUpFieldsVisible(){
         showSignUpPage.setBackground(getResources().getDrawable(R.drawable.switch_tricks, null));

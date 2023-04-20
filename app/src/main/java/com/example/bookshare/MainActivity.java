@@ -17,7 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.bookshare.features.ContractFragment;
+import com.example.bookshare.features.contact.ContactFragment;
 import com.example.bookshare.features.book.BookFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         @SuppressLint("CutPasteId")
         BottomNavigationView bottomNavigationView = findViewById(R.id.btnNavicationIcon);
         BookFragment bookFragment = new BookFragment();
-        ContractFragment contractFragment = new ContractFragment();
+        ContactFragment contactFragment = new ContactFragment();
 
         // variable initialize
         editText_search = findViewById(R.id.editText_search);
@@ -62,9 +62,9 @@ public class MainActivity extends AppCompatActivity {
                         // go to the product fragment class
                         getSupportFragmentManager().beginTransaction().replace(R.id.fl_mainContener, bookFragment).commit();
                         return true;
-                    case R.id.navBtnContract:
+                    case R.id.navBtnContact:
                         // go to the contract fragment class
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fl_mainContener, contractFragment).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fl_mainContener, contactFragment).commit();
                         return true;
                     default:
                         return false;

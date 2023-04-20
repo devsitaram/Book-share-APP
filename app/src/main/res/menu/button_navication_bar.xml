@@ -8,13 +8,23 @@
         android:title="@string/home" />
 
     <item
+        android:id="@+id/navBtnProfile"
+        android:icon="@drawable/profile_navication_icon"
+        android:title="@string/profile"/>
+
+    <item
         android:id="@+id/navBtnProduct"
         android:icon="@drawable/product_navication_icon"
         android:title="@string/product"/>
 
     <item
-        android:id="@+id/navBtnContract"
-        android:icon="@drawable/contract_navication_icon"
-        android:title="@string/contract"/>
+        android:id="@+id/navBtnContact"
+        android:icon="@drawable/contact_navication_icon"
+        android:title="@string/contact"/>
+
+    <item
+        android:id="@+id/navBtnAbout"
+        android:icon="@drawable/search_icon"
+        android:title="@string/about"/>
 
 </menu>

@@ -1,4 +1,4 @@
-package com.example.bookshare.features;
+package com.example.bookshare.features.contact;
 
 import android.os.Bundle;
 
@@ -12,10 +12,10 @@ import com.example.bookshare.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link ContractFragment#newInstance} factory method to
+ * Use the {@link ContactFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ContractFragment extends Fragment {
+public class ContactFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class ContractFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public ContractFragment() {
+    public ContactFragment() {
         // Required empty public constructor
     }
 
@@ -39,8 +39,8 @@ public class ContractFragment extends Fragment {
      * @return A new instance of fragment ContractFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static ContractFragment newInstance(String param1, String param2) {
-        ContractFragment fragment = new ContractFragment();
+    public static ContactFragment newInstance(String param1, String param2) {
+        ContactFragment fragment = new ContactFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
