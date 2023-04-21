@@ -9,7 +9,9 @@ public class ApiCallInstance {
     private static Retrofit retrofit;
 
 //    private static final String BASE_URL = "https://book4.p.rapidapi.com/";
-    private static final String BASE_URL = "http://10.0.2.2/example/";
+    private static final String BASE_URL = "http://172.16.0.198/example/";
+
+//    private static final String BASE_URL = "http://10.0.2.2/example/";
 
     public static Retrofit getRetrofitInstance() {
         if (retrofit == null) {

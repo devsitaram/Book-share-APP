@@ -12,4 +12,7 @@
     <color name="redColor">#FF1100</color>
     <color name="tansparentColor">#00CCC5C5</color>
     <color name="nullColor">#00FFFFFF</color>
+
+    <color name="active">#FF03DAC5</color>
+    <color name="inactive">#FFFFFFFF</color>
 </resources>

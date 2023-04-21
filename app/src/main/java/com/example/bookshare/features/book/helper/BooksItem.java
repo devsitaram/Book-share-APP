@@ -24,7 +24,7 @@ public class BooksItem implements Serializable {
 	private String url;
 
 	@SerializedName("image")
-	private String image;
+	private int image;
 
 	// getter methods
 	public String getDate(){
@@ -57,13 +57,5 @@ public class BooksItem implements Serializable {
 
 	public String getUrl(){
 		return url;
-	}
-
-	public String getImage(){
-		return image;
-	}
-
-	public void setImage(String image){
-		this.image = image;
 	}
 }

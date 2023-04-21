@@ -18,6 +18,7 @@
             app:cardCornerRadius="5dp">
 
             <ImageView
+                android:id="@+id/ivImage"
                 android:background="@mipmap/img_book"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
@@ -84,13 +85,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/detail"
-            android:layout_margin="3dp"/>
-        <TextView
-            android:id="@+id/tvUrl"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/download_url"
-            android:textColor="#2D5DED"
             android:layout_margin="3dp"/>
     </LinearLayout>
 </LinearLayout>

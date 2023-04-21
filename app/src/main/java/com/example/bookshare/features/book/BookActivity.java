@@ -45,6 +45,12 @@ public class BookActivity extends AppCompatActivity implements BookContract.View
     @Override
     public void setBooks(@NonNull BookPojo body) {
         RecyclerView recyclerView = findViewById(R.id.rvBook);
+
+
+//    URL url = new URL("http://image10.bizrate-images.com/resize?sq=60&uid=2216744464");
+//    Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+//    imageView.setImageBitmap(bmp);
+
         BookAdapter thisAdapter = new BookAdapter(BookActivity.this, body.getBooks());
         recyclerView.setAdapter(thisAdapter);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(BookActivity.this);

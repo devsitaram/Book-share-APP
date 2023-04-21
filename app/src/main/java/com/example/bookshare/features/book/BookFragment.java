@@ -35,7 +35,7 @@ public class BookFragment extends Fragment implements BookContract.View{
         super.onViewCreated(view, savedInstenceState);
 
         // create an object of the bookPresenter class and call the setBook method
-        BookPresenter bookPresenter = new BookPresenter((BookContract.View) this);
+        BookPresenter bookPresenter = new BookPresenter(this);
         bookPresenter.setBooks();
     }
     // if the system can be valid perform then show the successMessage with toast message

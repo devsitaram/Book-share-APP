@@ -18,7 +18,7 @@ public abstract class Databases extends RoomDatabase {
                     .allowMainThreadQueries()
                     .build();
         }
-        return (Databases) instance;
+        return instance;
     }
 
     // create the abstract methods

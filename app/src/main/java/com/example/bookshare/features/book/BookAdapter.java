@@ -2,9 +2,13 @@ package com.example.bookshare.features.book;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,6 +17,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.bookshare.R;
 import com.example.bookshare.features.book.helper.BooksItem;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.List;
 
 public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
@@ -42,7 +49,16 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
         holder.tvDate.setText("Date: "+book.getDate());
         holder.tvTitle.setText("Title: "+book.getTitle());
         holder.tvDetail.setText("Details: "+book.getDetail());
-        holder.tvUrl.setText("Url: "+book.getUrl());
+
+//        URL url = null;
+//        try {
+//            url = new URL(book.getUrl());
+//            Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+//            holder.ivImage.setImageBitmap(bmp);
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
+
     }
 
     @Override
@@ -51,7 +67,8 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
     }
 
     protected static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tvAuther, tvId, tvPrices, tvTitle, tvUrl, tvDetail, tvDate, tvRating;
+        TextView tvAuther, tvId, tvPrices, tvTitle, tvDetail, tvDate, tvRating;
+        ImageView ivImage;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvAuther = itemView.findViewById(R.id.tvAuthor);
@@ -61,7 +78,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
             tvDate = itemView.findViewById(R.id.tvDate);
             tvTitle = itemView.findViewById(R.id.tvTitle);
             tvDetail = itemView.findViewById(R.id.tvDetail);
-            tvUrl = itemView.findViewById(R.id.tvUrl);
+            ivImage = itemView.findViewById(R.id.ivImage);
         }
     }
 }
