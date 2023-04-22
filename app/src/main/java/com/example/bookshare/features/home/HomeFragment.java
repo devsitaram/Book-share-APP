@@ -1,4 +1,4 @@
-package com.example.bookshare.features.contact;
+package com.example.bookshare.features.home;
 
 import android.os.Bundle;
 
@@ -11,9 +11,9 @@ import android.view.ViewGroup;
 
 import com.example.bookshare.R;
 
-public class ContactFragment extends Fragment {
+public class HomeFragment extends Fragment {
 
-
+    View hView;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,13 +22,12 @@ public class ContactFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_contract, container, false);
+        return hView = inflater.inflate(R.layout.fragment_home, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
 
     }
 }

@@ -7,8 +7,10 @@
 
     <ImageView
         android:id="@+id/ivSliderImage"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="300dp"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
         android:src="@mipmap/img_slider_second"
         android:contentDescription="@null" />
 
@@ -16,8 +18,10 @@
         android:id="@+id/tvSliderDescribtion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        android:textColor="#232222"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="30dp"
+        android:textColor="#302F2F"
         android:textSize="25sp"
         android:textAlignment="center"
         android:textStyle="bold"

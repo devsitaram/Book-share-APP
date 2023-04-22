@@ -13,6 +13,6 @@
     <color name="tansparentColor">#00CCC5C5</color>
     <color name="nullColor">#00FFFFFF</color>
 
-    <color name="active">#FF03DAC5</color>
-    <color name="inactive">#FFFFFFFF</color>
+    <color name="active">#E83A75</color>
+    <color name="inactive">#7E7C7C</color>
 </resources>
