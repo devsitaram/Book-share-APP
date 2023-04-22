@@ -4,7 +4,7 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "post")
+@Entity(tableName = "user")
 public class UserPojo {
     @PrimaryKey
     @ColumnInfo(name="user_id")
@@ -18,12 +18,13 @@ public class UserPojo {
     @ColumnInfo(name = "user_phoneNo")
     public String phoneNo;
 
-    public UserPojo(int id, String name, String email, String address, String phoneNo) {
-        this.id = id;
-        this.name = name;
+    @ColumnInfo(name = "user_password")
+    public String password;
+
+    public UserPojo(String email, String name, String password) {
         this.email = email;
-        this.address = address;
-        this.phoneNo = phoneNo;
+        this.name = name;
+        this.password = password;
     }
 
     public int getId() {

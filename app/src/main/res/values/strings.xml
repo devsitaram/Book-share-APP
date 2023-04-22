@@ -33,4 +33,6 @@
     <string name="relevant">RELEVANT</string>
     <string name="java_programming">Java Programming</string>
     <string name="buy">Buy</string>
+    <string name="username">Username</string>
+    <string name="email">Email</string>
 </resources>

@@ -58,4 +58,5 @@ public class BooksItem implements Serializable {
 	public String getUrl(){
 		return url;
 	}
+
 }
