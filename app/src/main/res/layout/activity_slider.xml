@@ -4,91 +4,69 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".slider.SliderActivity">
+    tools:context=".features.slider.SliderActivity">
 
     <androidx.viewpager.widget.ViewPager
-        android:background="#FF7E7E"
         android:id="@+id/sliderViewPager"
         android:layout_width="wrap_content"
         android:layout_height="550dp"
+        android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints" />
 
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="vertical"
-            tools:ignore="MissingConstraints,UseCompoundDrawables,UselessParent">
-
-            <ImageView
-                android:id="@+id/ivLogo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:contentDescription="@null"
-                android:src="@mipmap/book_app_logo" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:text="@string/book_share"
-                android:textAlignment="center"
-                android:textSize="20sp"
-                android:textStyle="italic"/>
-
-        </LinearLayout>
-    </androidx.viewpager.widget.ViewPager>
-
-    <Button
-        android:id="@+id/btnSliderSkip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <TextView
+        android:id="@+id/tvSliderSkip"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
         android:text="@string/skip"
         android:textAllCaps="false"
+        android:textAlignment="center"
+        android:layout_marginEnd="10dp"
         android:layout_marginTop="10dp"
         android:textSize="20sp"
+        android:textStyle="bold"
         android:background="@drawable/button_shapes"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btnSliderBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <TextView
+        android:id="@+id/tvSliderBack"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
         android:text="@string/back"
         android:textAllCaps="false"
-        android:layout_marginBottom="10dp"
+        android:textAlignment="center"
+        android:layout_marginStart="10dp"
         android:textSize="20sp"
-        android:background="@drawable/button_shapes"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:ignore="MissingConstraints" />
 
-    <Button
-        android:id="@+id/btnSliderNext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <TextView
+        android:id="@+id/tvSliderNext"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
         android:text="@string/next"
         android:textAllCaps="false"
-        android:layout_marginBottom="10dp"
+        android:textAlignment="center"
+        android:layout_marginEnd="10dp"
         android:textSize="20sp"
-        android:background="@drawable/button_shapes"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:ignore="MissingConstraints" />
 
     <LinearLayout
         android:id="@+id/indicator_layout"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:orientation="horizontal"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

@@ -1,4 +1,4 @@
-package com.example.bookshare.slider;
+package com.example.bookshare.features.slider;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -17,12 +17,12 @@ import com.example.bookshare.R;
 public class SliderAdapter extends PagerAdapter {
 
     Context context;
-    int image[] = {
+    int[] image = {
             R.mipmap.img_slider_first,
             R.mipmap.img_slider_second,
             R.mipmap.img_slider_third,
     };
-    int description[] = {
+    int[] description = {
             R.string.tv_first_description,
             R.string.tv_second_description,
             R.string.tv_third_description,
@@ -38,15 +38,15 @@ public class SliderAdapter extends PagerAdapter {
 
     @Override
     public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
-        return view == (LinearLayout) object;
+        return view == object;
     }
 
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position){
-        LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         @SuppressLint("ResourceType")
-        View view = layoutInflater.inflate(R.id.sliderViewPager, container, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.slider_layout, container, false);
 
         @SuppressLint({"MissingInflatedId", "LocalSuppress"})
         ImageView sliderImage =  view.findViewById(R.id.ivSliderImage);
@@ -55,9 +55,7 @@ public class SliderAdapter extends PagerAdapter {
 
         sliderImage.setImageResource(image[position]);
         textViewDescription.setText(description[position]);
-
         container.addView(view);
-
 
         return view;
     }

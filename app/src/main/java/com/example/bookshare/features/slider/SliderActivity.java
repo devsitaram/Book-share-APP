@@ -1,19 +1,14 @@
-package com.example.bookshare.slider;
+package com.example.bookshare.features.slider;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
-import androidx.viewpager.widget.ViewPager.SimpleOnPageChangeListener;
-
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.Html;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.example.bookshare.MainActivity;
 import com.example.bookshare.R;
 import com.example.bookshare.features.login.LoginActivity;
@@ -22,23 +17,24 @@ public class SliderActivity extends AppCompatActivity {
 
     ViewPager mSliderViewPager;
     LinearLayout mDotLayout;
-    Button btnSkip, btnBack, btnNext;
+    TextView btnSkip, btnBack, btnNext;
 
     TextView[] dots;
     SliderAdapter sliderAdapter;
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_slider);
 
-        btnSkip = findViewById(R.id.btnSliderSkip);
-        btnBack = findViewById(R.id.btnSliderBack);
-        btnNext = findViewById(R.id.btnSliderNext);
+        btnSkip = findViewById(R.id.tvSliderSkip);
+        btnBack = findViewById(R.id.tvSliderBack);
+        btnNext = findViewById(R.id.tvSliderNext);
 
         btnSkip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SliderActivity.this, MainActivity.class));
+                startActivity(new Intent(SliderActivity.this, LoginActivity.class));
                 finish();
             }
         });
@@ -56,7 +52,7 @@ public class SliderActivity extends AppCompatActivity {
                 if (getItem(0)<2){
                     mSliderViewPager.setCurrentItem(getItem(1), true);
                 } else {
-                    startActivity(new Intent(SliderActivity.this, MainActivity.class));
+                    startActivity(new Intent(SliderActivity.this, LoginActivity.class));
                     finish();
                 }
             }
@@ -71,14 +67,7 @@ public class SliderActivity extends AppCompatActivity {
         setUpIndicator(0);// call this method
         mSliderViewPager.addOnPageChangeListener(viewListener);
 
-//        new Handler().postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                Intent intent = new Intent(SliderActivity.this, LoginActivity.class);
-//                startActivity(intent);
-//                finish();
-//            }
-//        }, 3000);
+
     }
 
     public void setUpIndicator(int position){

@@ -29,4 +29,8 @@
     <string name="tv_first_description">Reading is a conversation. All books talk. But a good book listens as well.</string>
     <string name="tv_second_description">Read the best book first, or you may not have a chance to read them at all.</string>
     <string name="tv_third_description">The only thing you absolutely have to know is the location of the library.</string>
+    <string name="find_your_favorite_book">FIND YOUR FAVORITE BOOK</string>
+    <string name="relevant">RELEVANT</string>
+    <string name="java_programming">Java Programming</string>
+    <string name="buy">Buy</string>
 </resources>
