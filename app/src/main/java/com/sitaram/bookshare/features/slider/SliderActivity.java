@@ -19,7 +19,6 @@ public class SliderActivity extends AppCompatActivity {
     ViewPager mSliderViewPager;
     LinearLayout mDotLayout;
     TextView btnSkip, btnBack, btnNext;
-
     TextView[] dots;
     SliderAdapter sliderAdapter;
     SharedPreferences.Editor editor;
@@ -62,13 +61,15 @@ public class SliderActivity extends AppCompatActivity {
                     finish();
                 }
             });
+
+            // initialize the mSliderViewPager and mDotLayout
             mSliderViewPager = findViewById(R.id.sliderViewPager);
             mDotLayout = findViewById(R.id.indicator_layout);
-
+            // create an object of sliderAdapter and call the setAdapter methods
             sliderAdapter = new SliderAdapter(this);
             mSliderViewPager.setAdapter(sliderAdapter);
 
-            setUpIndicator(0);// call this method
+            setUpIndicator(0);// call this method where it is accept the one integer parameter
             mSliderViewPager.addOnPageChangeListener(viewListener);
 
             // Save the preference to indicate that the user has viewed the slider screen
@@ -82,6 +83,7 @@ public class SliderActivity extends AppCompatActivity {
         dots = new TextView[3];
         mDotLayout.removeAllViews();
 
+        // using the for loop
         for (int i=0; i<dots.length; i++){
             dots[i] = new TextView(this);
             dots[i].setText("\u2022");
@@ -89,7 +91,7 @@ public class SliderActivity extends AppCompatActivity {
             dots[i].setTextColor(getResources().getColor(R.color.inactive, getApplicationContext().getTheme()));
             mDotLayout.addView(dots[i]);
         }
-
+        // setTextColor for slider position
         dots[position].setTextColor(getResources().getColor(R.color.active, getApplicationContext().getTheme()));
     }
 

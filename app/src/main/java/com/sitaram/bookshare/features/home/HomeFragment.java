@@ -42,19 +42,12 @@ public class HomeFragment extends Fragment{
         super.onViewCreated(view, savedInstanceState);
 //        setBookRecyclerView(); // call this methods
 
-
-
-
-
         // initialization the variable
         btnNotification = hView.findViewById(R.id.btn_notification);
 
         // notification button
-        btnNotification.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                setNotificationMessage(); // call this methods
-            }
+        btnNotification.setOnClickListener(view1 -> {
+            setNotificationMessage(); // call this methods
         });
     }
 

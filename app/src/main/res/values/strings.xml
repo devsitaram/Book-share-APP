@@ -35,4 +35,25 @@
     <string name="buy">Buy</string>
     <string name="username">Username</string>
     <string name="email">Email</string>
+    <string name="hi_i_am_a_book_writer_and_i_love_book_reading_it_s_my_greatest_passion_in_life">Hi, I am a book writer and I love Book reading! It\'s my greatest passion in life.</string>
+    <string name="writers_amp_authors"><![CDATA[Writers & Authors]]></string>
+    <string name="sitaram_tamang">Sitaram Tamang</string>
+    <string name="photos">PHOTOS</string>
+    <string name="_77k">77k</string>
+    <string name="followers">FOLLOWERS</string>
+    <string name="_62k">62k</string>
+    <string name="following">FOLLOWING</string>
+    <string name="_105">105</string>
+    <string name="natures">Natures</string>
+    <string name="_31_photos">31 photos</string>
+    <string name="my_arts">My Arts</string>
+    <string name="my_book">My Books</string>
+    <string name="_36_photos">36 photos</string>
+    <string name="_11_photos">11 photos</string>
+    <string name="animals">Animals</string>
+    <string name="_22_photos">22 photos</string>
+    <string name="my_collections">My Collections</string>
+    <string name="social_media">Social media</string>
+    <string name="instragram">Instragram</string>
+    <string name="facebook">Facebook</string>
 </resources>

@@ -58,7 +58,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
 
     protected static class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvAuther, tvId, tvPrices, tvTitle, tvDetail, tvDate, tvRating;
-        public  ImageView ivImage;
+        ImageView ivImage;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvAuther = itemView.findViewById(R.id.tvAuthor);

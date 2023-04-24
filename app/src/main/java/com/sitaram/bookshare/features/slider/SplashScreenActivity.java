@@ -18,7 +18,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        TextView tvAppName = findViewById(R.id.tvAppName);
+        // use the postDelayed
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -27,14 +27,5 @@ public class SplashScreenActivity extends AppCompatActivity {
                 finish();
             }
         }, 2000);
-
-//        tvAppName.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
-//                startActivity(intent);
-//                finish();
-//            }
-//        });
     }
 }
