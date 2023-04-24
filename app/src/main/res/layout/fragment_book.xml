@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".features.book.BookFragment">
+    tools:context="com.sitaram.bookshare.features.book.BookFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
