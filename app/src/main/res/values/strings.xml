@@ -56,4 +56,24 @@
     <string name="social_media">Social media</string>
     <string name="instragram">Instragram</string>
     <string name="facebook">Facebook</string>
+    <string name="twitter">Twitter</string>
+    <string name="personal_details">Personal Details</string>
+    <string name="kathmandu">Kathmandu</string>
+    <string name="manoj12_gmail_com">manoj12@gmail.com</string>
+    <string name="email_address">Email Address:</string>
+    <string name="address">Address:</string>
+    <string name="_9801022172">9801022172</string>
+    <string name="contact_no">Contact No:</string>
+    <string name="features">Features</string>
+    <string name="welcome_to_our_app">Welcome to our app!</string>
+    <string name="book_share_app_can_be_a_book_designed_and_researched_to_provide_for_book_lovers_where_this_app_offers_various_books_across_various_genres_including_fiction_non_fiction_romance_thriller_science_fiction_and_more">Book Share app can be a book designed and researched to provide for book lovers where this app offers various books across various genres, including fiction, non-fiction, romance, thriller, science-fiction, and more.</string>
+    <string name="you_can_browse_and_purchase_books_directly_from_the_app_and_read_reviews_see_ratings_and_connect_with_other_readers_to_discuss_your_favourite_titles_you_can_join_book_clubs_and_participate_in_reading_challenges_to_stay_motivated_and_engaged">You can browse and purchase books directly from the app and read reviews, see ratings, and connect with other readers to discuss your favourite titles. You can join book clubs and participate in reading challenges to stay motivated and engaged.</string>
+    <string name="join_our_community_of_book_lovers_today_and_start_exploring_the_wonderful_world_of_literature">Join our community of book lovers today and start exploring the wonderful world of literature!</string>
+    <string name="_1_user_friendly_interface">1. User-Friendly Interface</string>
+    <string name="_2_vast_selection_of_books">2. Vast Selection of Books</string>
+    <string name="_3_advanced_search_options">3. Advanced Search Options</string>
+    <string name="_4_purchasing_options">4. Purchasing Options</string>
+    <string name="_5_more">5. More...</string>
+    <string name="www_book_share_app_com">www.book.share.app.com</string>
+    <string name="_25_march_2023">25 March 2023</string>
 </resources>

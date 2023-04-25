@@ -1,5 +1,6 @@
 package com.sitaram.bookshare.features.home;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -10,18 +11,21 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.bookshare.R;
+import com.google.android.material.navigation.NavigationBarView;
 import com.sitaram.bookshare.features.util.BookUtil;
 
 import java.util.ArrayList;
 
 public class HomeFragment extends Fragment{
 
+    RecyclerView hRecyclerView;
     Button btnNotification;
     View hView;
 
@@ -40,7 +44,7 @@ public class HomeFragment extends Fragment{
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-//        setBookRecyclerView(); // call this methods
+        setBookRecyclerView(); // call this methods
 
         // initialization the variable
         btnNotification = hView.findViewById(R.id.btn_notification);
@@ -49,11 +53,44 @@ public class HomeFragment extends Fragment{
         btnNotification.setOnClickListener(view1 -> {
             setNotificationMessage(); // call this methods
         });
+
+//        getSupportFragmentManager().beginTransaction().replace(R.id.flMainContener, homeFragment).commit();
+//        // this is the bottomNavigationView where click to go the button related pages
+//        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+//            @SuppressLint("NonConstantResourceId")
+//            @Override
+//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//                switch (item.getItemId()) {
+//                    case R.id.navBtnHome:
+//                        // go to the home fragment class
+//                        getSupportFragmentManager().beginTransaction().replace(R.id.flMainContener, homeFragment).commit();
+//                        return true;
+//                    case R.id.navBtnProfile:
+//                        // go to the profile fragment class
+//                        getSupportFragmentManager().beginTransaction().replace(R.id.flMainContener, profileFragment).commit();
+//                        return true;
+//                    case R.id.navBtnProduct:
+//                        // go to the product fragment class
+//                        getSupportFragmentManager().beginTransaction().replace(R.id.flMainContener, bookFragment).commit();
+//                        return true;
+//                    case R.id.navBtnContact:
+//                        // go to the contract fragment class
+//                        getSupportFragmentManager().beginTransaction().replace(R.id.flMainContener, contactFragment).commit();
+//                        return true;
+//                    case R.id.navBtnAbout:
+//                        // go to the about fragment class
+//                        getSupportFragmentManager().beginTransaction().replace(R.id.flMainContener, aboutFragment).commit();
+//                        return true;
+//                    default:
+//                        return false;
+//                }
+//            }
+//        });
+
     }
 
     public void setBookRecyclerView() {
-        RecyclerView hRecyclerView = hView.findViewById(R.id.rvHomeBookItem);
-
+        hRecyclerView = hView.findViewById(R.id.rvHomeBookItem);
         arrBooksList = new ArrayList<>();
         arrBooksList.add(new Books(R.mipmap.book_app_logo,"Hello"));
         arrBooksList.add(new Books(R.mipmap.book_app_logo,"Hello"));
@@ -64,10 +101,6 @@ public class HomeFragment extends Fragment{
         hRecyclerView.setAdapter(homeAdapter);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL, false);
         hRecyclerView.setLayoutManager(linearLayoutManager);
-
-        // add divider
-//        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(hRecyclerView.getContext(),linearLayoutManager.getOrientation());
-//        hRecyclerView.addItemDecoration(dividerItemDecoration);
     }
 
     // notification button
