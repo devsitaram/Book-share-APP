@@ -97,4 +97,8 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="np01ma4s220003_islingtoncollege_edu_np">np01ma4s220003@islingtoncollege.edu.np</string>
+    <string name="send_feedback">Send feedback</string>
+    <string name="outbox">Outbox</string>
+    <string name="inbox">Inbox</string>
 </resources>

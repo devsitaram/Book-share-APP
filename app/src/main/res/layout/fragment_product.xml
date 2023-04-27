@@ -3,13 +3,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".features.product.ProductFragment">
+    tools:context="com.sitaram.bookshare.features.product.ProductFragment">
 
     <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp">
+        android:layout_marginBottom="20dp"
+        tools:ignore="UselessParent">
 
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#C8FF1100"
+            android:layout_gravity="center">
+
+            <Button
+                android:id="@+id/btnBackToHome"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/arrow_back_sharp_icon" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:text="@string/contact"
+                android:textAllCaps="true"
+                android:textColor="#F3EFEF"
+                android:textSize="20sp" />
+
+        </LinearLayout>
         <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -68,18 +95,17 @@
 
             </com.google.android.material.tabs.TabLayout>
         </HorizontalScrollView>
-    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvBook"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"/>
-    </LinearLayout>
+            android:layout_marginTop="10dp">
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvBook"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"/>
+        </LinearLayout>
+    </LinearLayout>
 </FrameLayout>

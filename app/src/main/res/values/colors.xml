@@ -17,6 +17,8 @@
     <color name="inactive">#7E7C7C</color>
 
     <color name="textOrange">#EC981C</color>
+    <color name="btnTextPink">#E6A256FF</color>
+
 
 
 </resources>

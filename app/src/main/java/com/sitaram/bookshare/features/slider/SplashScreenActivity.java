@@ -21,6 +21,6 @@ public class SplashScreenActivity extends AppCompatActivity {
             Intent intent = new Intent(SplashScreenActivity.this, SliderActivity.class);
             startActivity(intent);
             finish();
-        }, 1000);
+        }, 500);
     }
 }

@@ -5,7 +5,6 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 
 public class BooksItem implements Serializable {
-
 	@SerializedName("date")
 	private String date;
 	@SerializedName("author")
@@ -22,7 +21,6 @@ public class BooksItem implements Serializable {
 	private String title;
 	@SerializedName("url")
 	private String url;
-
 	@SerializedName("image")
 	private int image;
 

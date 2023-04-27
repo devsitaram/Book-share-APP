@@ -45,6 +45,7 @@ public class ProductFragment extends Fragment implements ProductContract.View{
             isApiCall = false;
         }
     }
+
     // if the system can be valid perform then show the successMessage with toast message
     @SuppressLint("ShowToast")
     @Override

@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputEditText;
 import com.sitaram.bookshare.features.MainActivity;
 import com.example.bookshare.R;
 import com.sitaram.bookshare.features.database.DatabaseHelper;
@@ -21,7 +22,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     Button btnLogin, btnSignUp, btnCheckBok, btnShowLogInPage, btnShowSignUpPage, btnGmail, btnFacebook, btnTwitter;
     View signUpLayout, logInLayout;
     LoginPresenter loginPresenter;
-    EditText editSignUpEmail, editSignUpUsername ,editSignUpPassword, editLoginUsername, editLoginPasswords;
+    TextInputEditText editSignUpEmail, editSignUpUsername ,editSignUpPassword, editLoginUsername, editLoginPasswords;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +73,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
                 String password = editLoginPasswords.getText().toString().trim();
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
+                finish();
 //            loginPresenter.loginButtonClick(username, password); // call the loginButtonClick methods
             }
         });

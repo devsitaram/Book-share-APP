@@ -6,7 +6,6 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.Html;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -22,7 +21,7 @@ public class SliderActivity extends AppCompatActivity {
     TextView[] dots;
     SliderAdapter sliderAdapter;
     SharedPreferences.Editor editor;
-    @SuppressLint("MissingInflatedId")
+    @SuppressLint({"MissingInflatedId", "SetTextI18n"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +29,7 @@ public class SliderActivity extends AppCompatActivity {
         btnSkip = findViewById(R.id.tvSliderSkip);
         btnBack = findViewById(R.id.tvSliderBack);
         btnNext = findViewById(R.id.tvSliderNext);
+        btnBack.setVisibility(View.INVISIBLE);
 
         // SharedPreferences
         SharedPreferences sharedPreferences = getSharedPreferences("SelfPrefs", MODE_PRIVATE);
@@ -101,13 +101,19 @@ public class SliderActivity extends AppCompatActivity {
             // Do something while the user is scrolling through the ViewPager
         }
 
+        @SuppressLint("SetTextI18n")
         @Override
         public void onPageSelected(int position) {
             setUpIndicator(position);
-            if(position>0){
+            if(position>0) {
                 btnBack.setVisibility(View.VISIBLE);
             } else {
                 btnBack.setVisibility(View.INVISIBLE);
+            }
+            if (position==2) {
+                btnNext.setText("Start");
+            } else {
+                btnNext.setText("Next");
             }
         }
 

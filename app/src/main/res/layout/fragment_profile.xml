@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="20dp"
-    tools:context=".features.profile.ProfileFragment">
+    tools:context="com.sitaram.bookshare.features.profile.ProfileFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -33,7 +33,7 @@
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/btnBackToHome"
+                        android:id="@+id/btnProfileToHome"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:background="@drawable/arrow_back_sharp_icon" />
@@ -230,10 +230,43 @@
                     android:textColor="@color/textOrange"
                     android:textStyle="bold" />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvProfileCollection"
+                <LinearLayout
+                    android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="80dp"
+                        android:layout_height="140dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        app:cardCornerRadius="5dp">
+
+                        <ImageView
+                            android:id="@+id/ivTypesOfImage"
+                            android:layout_width="80dp"
+                            android:layout_height="140dp"
+                            android:contentDescription="@null" />
+
+                        <TextView
+                            android:id="@+id/tvNameOfImage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="@string/natures"
+                            android:textColor="#0B0A0A"
+                            android:textSize="15sp" />
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvProfileCollection"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" >
+
+                    </androidx.recyclerview.widget.RecyclerView>
+
+                </LinearLayout>
 
                 <TextView
                     android:layout_width="wrap_content"

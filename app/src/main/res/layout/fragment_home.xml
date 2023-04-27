@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".features.home.HomeFragment">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.sitaram.features.home.HomeFragment">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/teal_200"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnNavicationIcon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -20,98 +18,104 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@mipmap/img_book_study"
+            android:background="@color/teal_200"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:orientation="horizontal">
+                android:background="@mipmap/img_book_study"
+                android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/btnSettingMenu"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="start"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginEnd="150dp"
-                    android:background="@drawable/outline_dehaze_icon" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/btnNotification"
-                    style="?android:attr/buttonBarButtonStyle"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="end"
-                    android:layout_marginStart="125dp"
-                    android:layout_marginEnd="5dp"
-                    android:background="@drawable/outline_notifications_active_icon" />
+                    <Button
+                        android:id="@+id/btnSettingMenu"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="start"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="150dp"
+                        android:background="@drawable/outline_dehaze_icon" />
 
-                <androidx.cardview.widget.CardView
+                    <Button
+                        android:id="@+id/btnNotification"
+                        style="?android:attr/buttonBarButtonStyle"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="end"
+                        android:layout_marginStart="125dp"
+                        android:layout_marginEnd="5dp"
+                        android:background="@drawable/outline_notifications_active_icon" />
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
+                        app:cardCornerRadius="15dp">
+
+                        <ImageView
+                            android:id="@+id/img_userProfile"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:contentDescription="@null"
+                            android:src="@mipmap/img_user_profile"
+                            android:textAlignment="center" />
+
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginEnd="5dp"
-                    app:cardCornerRadius="15dp">
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/edit_text_shape"
+                    android:backgroundTint="#59FFFFFF"
+                    android:orientation="horizontal">
 
-                    <ImageView
-                        android:id="@+id/img_userProfile"
+                    <EditText
+                        android:id="@+id/editTextSearch"
+                        android:layout_width="230dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="5dp"
+                        android:autofillHints=""
+                        android:ems="10"
+                        android:focusable="false"
+                        android:hint="Search..."
+                        android:inputType="textPersonName"
+                        android:padding="10dp"
+                        tools:ignore="HardcodedText,RtlSymmetry" />
+
+                    <Button
+                        android:id="@+id/btnVoiceSearch"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:contentDescription="@null"
-                        android:src="@mipmap/img_user_profile"
-                        android:textAlignment="center" />
+                        android:layout_gravity="center"
+                        android:background="@drawable/outline_keyboard_voice" />
 
-                </androidx.cardview.widget.CardView>
-            </LinearLayout>
+                    <Button
+                        android:id="@+id/btnGoogleSearchBook"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/search_icon" />
 
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginBottom="15dp"
-                android:layout_marginEnd="15dp"
-                android:backgroundTint="#59FFFFFF"
-                android:background="@drawable/edit_text_shape">
-
-                <EditText
-                    android:id="@+id/editTextSearch"
-                    android:layout_width="230dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="5dp"
-                    android:autofillHints=""
-                    android:ems="10"
-                    android:focusable="false"
-                    android:hint="Search..."
-                    android:inputType="textPersonName"
-                    android:padding="10dp"
-                    tools:ignore="HardcodedText,RtlSymmetry" />
-
-                <Button
-                    android:id="@+id/btnVoiceSearch"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/outline_keyboard_voice_24" />
-
-                <Button
-                    android:id="@+id/btnGoogleSearchBook"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/search_icon" />
-
-            </LinearLayout>
+                </LinearLayout>
 
 
-<!--            <LinearLayout-->
-<!--                android:layout_width="240dp"-->
-<!--                android:layout_height="wrap_content">-->
+                <!--            <LinearLayout-->
+                <!--                android:layout_width="240dp"-->
+                <!--                android:layout_height="wrap_content">-->
 
                 <TextView
                     android:layout_width="200dp"
@@ -123,76 +127,85 @@
                     android:textColor="#FFFFFF"
                     android:textSize="30sp"
                     android:textStyle="bold" />
-<!--            </LinearLayout>-->
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#E39E38"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="5dp"
-                android:text="@string/relevant"
-                android:textColor="#F3EEEE"
-                android:textSize="20sp" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvHomeBookItem"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="15dp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#097FFF"
-            android:orientation="horizontal"
-            android:paddingBottom="30dp">
+                <!--            </LinearLayout>-->
+            </LinearLayout>
 
             <LinearLayout
-                android:layout_width="200dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="25dp">
+                android:background="#E39E38"
+                android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="200dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/use_bookstore_and_get_discount"
-                    android:textColor="#F1F1F1"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:text="@string/relevant"
+                    android:textColor="#F3EEEE"
                     android:textSize="20sp" />
 
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvHomeBookItem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="15dp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center">
+                android:background="#097FFF"
+                android:orientation="horizontal"
+                android:paddingBottom="50dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="200dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:text="@string/_50"
-                    android:textAlignment="center"
-                    android:textColor="#FFFFFF"
-                    android:textSize="50sp"
-                    android:textStyle="bold" />
+                    android:layout_gravity="center"
+                    android:layout_marginStart="25dp">
 
+                    <TextView
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/use_bookstore_and_get_discount"
+                        android:textColor="#F1F1F1"
+                        android:textSize="20sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:text="@string/_50"
+                        android:textAlignment="center"
+                        android:textColor="#FFFFFF"
+                        android:textSize="50sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
             </LinearLayout>
-
         </LinearLayout>
+    </ScrollView>
 
-    </LinearLayout>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/btnNavicationIcon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:backgroundTint="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/button_navication_bar" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

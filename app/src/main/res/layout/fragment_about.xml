@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".features.about.AboutFragment">
+    tools:context="com.sitaram.bookshare.features.about.AboutFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -29,6 +29,7 @@
                 android:layout_gravity="center">
 
                 <Button
+                    android:id="@+id/btnAboutToHome"
                     android:layout_width="55dp"
                     android:layout_height="35dp"
                     android:layout_margin="10dp"
