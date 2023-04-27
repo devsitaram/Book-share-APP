@@ -16,22 +16,23 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name="com.sitaram.bookshare.MainActivity"
-            android:exported="false"/>
+            android:name="com.sitaram.bookshare.features.menu.MenuActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.sitaram.bookshare.features.MainActivity"
+            android:exported="false" />
         <activity
             android:name="com.sitaram.bookshare.features.login.LoginActivity"
-            android:exported="false"/>
-        <activity
-            android:name="com.sitaram.bookshare.features.book.BookActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name="com.sitaram.bookshare.features.slider.SliderActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name="com.sitaram.bookshare.features.slider.SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

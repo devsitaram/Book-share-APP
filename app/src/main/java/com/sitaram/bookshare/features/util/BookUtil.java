@@ -2,8 +2,7 @@ package com.sitaram.bookshare.features.util;
 
 import android.util.Log;
 
-import com.sitaram.bookshare.features.book.helper.BookPojo;
-import com.sitaram.bookshare.features.book.helper.BooksItem;
+import com.sitaram.bookshare.features.product.helper.BookPojo;
 
 import java.util.ArrayList;
 

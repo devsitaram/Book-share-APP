@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.sitaram.bookshare.MainActivity;
+import com.sitaram.bookshare.features.MainActivity;
 import com.example.bookshare.R;
 import com.sitaram.bookshare.features.database.DatabaseHelper;
 
@@ -65,12 +65,15 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
             loginFieldsVisible();
         });
         // login button
-        btnLogin.setOnClickListener(v -> {
-            String username = editLoginUsername.getText().toString().trim();
-            String password = editLoginPasswords.getText().toString().trim();
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-            startActivity(intent);
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String username = editLoginUsername.getText().toString().trim();
+                String password = editLoginPasswords.getText().toString().trim();
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(intent);
 //            loginPresenter.loginButtonClick(username, password); // call the loginButtonClick methods
+            }
         });
     }
 

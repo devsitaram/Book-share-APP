@@ -1,4 +1,4 @@
-package com.sitaram.bookshare.features.book;
+package com.sitaram.bookshare.features.product;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -16,13 +16,13 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.bookshare.R;
-import com.sitaram.bookshare.features.book.helper.BookPojo;
+import com.sitaram.bookshare.features.product.helper.BookPojo;
 
-public class BookFragment extends Fragment implements BookContract.View{
+public class ProductFragment extends Fragment implements ProductContract.View{
 
     Context context;
     View bookView;
-
+    boolean isApiCall = true;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,15 +31,19 @@ public class BookFragment extends Fragment implements BookContract.View{
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return bookView = inflater.inflate(R.layout.fragment_book, container, false);
+        return bookView = inflater.inflate(R.layout.fragment_product, container, false);
     }
 
+    @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstenceState) {
         super.onViewCreated(view, savedInstenceState);
-
-        // create an object of the bookPresenter class and call the setBook method
-        BookPresenter bookPresenter = new BookPresenter(this);
-        bookPresenter.setBooks();
+        // call the api only one time
+        if(isApiCall){
+            // create an object of the bookPresenter class and call the setBook method
+            ProductPresenter productPresenter = new ProductPresenter(this);
+            productPresenter.setBooks();
+            isApiCall = false;
+        }
     }
     // if the system can be valid perform then show the successMessage with toast message
     @SuppressLint("ShowToast")
@@ -59,7 +63,7 @@ public class BookFragment extends Fragment implements BookContract.View{
     @Override
     public void setBooks(@NonNull BookPojo body) {
         RecyclerView recyclerView = bookView.findViewById(R.id.rvBook);
-        BookAdapter thisAdapter = new BookAdapter(getActivity(), body.getBooks());
+        ProductAdapter thisAdapter = new ProductAdapter(getActivity(), body.getBooks());
         recyclerView.setAdapter(thisAdapter);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(linearLayoutManager);

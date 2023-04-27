@@ -1,10 +1,10 @@
-package com.sitaram.bookshare.features.book;
+package com.sitaram.bookshare.features.product;
 
-import com.sitaram.bookshare.features.book.helper.BookPojo;
+import com.sitaram.bookshare.features.product.helper.BookPojo;
 
 import retrofit2.Call;
 
-public interface BookContract {
+public interface ProductContract {
 
     interface View {
         void successMessage(String success);

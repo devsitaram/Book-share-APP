@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.sitaram.bookshare.features.slider.SplashScreenActivity">
+    tools:context=".features.slider.SplashScreenActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -36,7 +36,6 @@
             android:textColor="@color/active"
             android:textSize="20sp"
             android:textStyle="bold" />
-
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

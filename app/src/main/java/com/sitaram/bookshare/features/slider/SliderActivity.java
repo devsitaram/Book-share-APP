@@ -113,13 +113,6 @@ public class SliderActivity extends AppCompatActivity {
 
         @Override
         public void onPageScrollStateChanged(int state) {
-            if (state == ViewPager.SCROLL_STATE_IDLE) {
-                // Do something when the ViewPager stops scrolling
-            } else if (state == ViewPager.SCROLL_STATE_DRAGGING) {
-                // Do something while the user is dragging the ViewPager
-            } else if (state == ViewPager.SCROLL_STATE_SETTLING) {
-                // Do something while the ViewPager is settling into a final position
-            }
         }
     };
 

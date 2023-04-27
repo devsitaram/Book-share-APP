@@ -1,4 +1,4 @@
-package com.sitaram.bookshare.features.book;
+package com.sitaram.bookshare.features.product;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -13,15 +13,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.bookshare.R;
-import com.sitaram.bookshare.features.book.helper.BooksItem;
+import com.sitaram.bookshare.features.product.helper.BooksItem;
 
 import java.util.List;
 
-public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
+public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder> {
 
     Context context;
     List<BooksItem> bookPojoList;
-    public BookAdapter(Context context, List<BooksItem> bookPojoList) {
+
+    public ProductAdapter(Context context, List<BooksItem> bookPojoList) {
         this.context = context;
         this.bookPojoList = bookPojoList;
     }
@@ -37,17 +38,15 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         BooksItem book = bookPojoList.get(position);
-        holder.tvAuther.setText("Author: "+book.getAuthor());
-        holder.tvId.setText("Book Id: "+book.getId());
-        holder.tvPrices.setText("Price: "+book.getPrice()+"");
-        holder.tvRating.setText("Rating: "+book.getRating()+"");
-        holder.tvDate.setText("Date: "+book.getDate());
-        holder.tvTitle.setText("Title: "+book.getTitle());
-        holder.tvDetail.setText("Details: "+book.getDetail());
-
-//        String uri = user.getAvatarUri(); // or whatever you want
+        holder.tvAuther.setText("Author: " + book.getAuthor());
+        holder.tvId.setText("Book Id: " + book.getId());
+        holder.tvPrices.setText("Price: " + book.getPrice() + "");
+        holder.tvRating.setText("Rating: " + book.getRating() + "");
+        holder.tvDate.setText("Date: " + book.getDate());
+        holder.tvTitle.setText("Title: " + book.getTitle());
+        holder.tvDetail.setText("Details: " + book.getDetail());
+        // or whatever you want
         Glide.with(holder.itemView.getContext()).load(book.getUrl()).into(holder.ivImage);
-
 
     }
 
@@ -59,6 +58,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
     protected static class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvAuther, tvId, tvPrices, tvTitle, tvDetail, tvDate, tvRating;
         ImageView ivImage;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvAuther = itemView.findViewById(R.id.tvAuthor);

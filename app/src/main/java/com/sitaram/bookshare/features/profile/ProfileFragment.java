@@ -29,7 +29,7 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProfileFragment<pic_id> extends Fragment {
+public class ProfileFragment extends Fragment {
 
     RecyclerView pRecyclerView;
     List<CollectionPojo> collectionPojoList;
@@ -42,15 +42,6 @@ public class ProfileFragment<pic_id> extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        if (getArguments() != null) {
-//            // object create an camera button
-//            imageCapture = pView.findViewById(R.id.ivProfilePicture);
-//            // create an setOnClickListener for camera
-//            imageCapture.setOnClickListener((View.OnClickListener) view1 -> {
-//                takeProfilePicture();
-//            });
-//        }
-
     }
 
     @Override

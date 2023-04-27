@@ -1,4 +1,4 @@
-package com.sitaram.bookshare.features.book.helper;
+package com.sitaram.bookshare.features.product.helper;
 
 import java.util.List;
 

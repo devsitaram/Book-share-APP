@@ -1,38 +1,33 @@
-package com.sitaram.bookshare.features.book;
+package com.sitaram.bookshare.features.product;
 
 import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-import com.sitaram.bookshare.features.book.helper.BookPojo;
-import com.sitaram.bookshare.features.util.BookUtil;
-
-import java.util.ArrayList;
+import com.sitaram.bookshare.features.product.helper.BookPojo;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class BookPresenter implements BookContract.Presenter {
+public class ProductPresenter implements ProductContract.Presenter{
 
-    private final BookContract.View mView;
-    private final BookModel bookModel = new BookModel();
-
-    public BookPresenter(BookContract.View mView) {
+    private final ProductContract.View mView;
+    private final ProductModel productModel = new ProductModel();
+    public ProductPresenter(ProductContract.View mView) {
         this.mView = mView;
     }
 
-    // create an setBook methods where call the api and if response is success the response is set the body
     @Override
     public void setBooks() {
-        bookModel.getBooks().enqueue(new Callback<BookPojo>() {
+        productModel.getBooks().enqueue(new Callback<BookPojo>() {
             @Override
             public void onResponse(@NonNull Call<BookPojo> call, @NonNull Response<BookPojo> response) {
                 if (response.isSuccessful()) {
                     mView.setBooks(response.body());
                     // call the book util
-                    BookUtil bookUtil = new BookUtil(response.body());
-                    bookUtil.ApiDataStore(bookUtil);
+//                    BookUtil bookUtil = new BookUtil(response.body());
+//                    bookUtil.ApiDataStore(bookUtil);
                     mView.successMessage("Api call Success.");
                 } else {
                     mView.errorMessage("Api call BookPojo is error.");
