@@ -106,4 +106,5 @@
     <string name="receive_new_letters">Receive new letters</string>
     <string name="receive_special_offer">Receive special offer</string>
     <string name="receive_update">Receive Update</string>
+    <string name="log_out">Log out</string>
 </resources>

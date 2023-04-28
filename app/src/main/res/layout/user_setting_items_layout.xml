@@ -28,8 +28,8 @@
             android:text="@string/edit_profile" />
 
         <Button
-            android:layout_width="50dp"
-            android:layout_height="40dp"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
             android:layout_gravity="end"
             android:background="@drawable/ic_keyboard_double_arrow_right" />
 

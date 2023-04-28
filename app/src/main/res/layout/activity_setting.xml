@@ -30,9 +30,8 @@
 
                 <Button
                     android:id="@+id/btnSettingToHome"
-                    android:layout_width="55dp"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_width="50dp"
+                    android:layout_height="45dp"
                     android:layout_marginStart="5dp"
                     android:background="@drawable/ic_backspace_keyboard" />
 
@@ -78,6 +77,8 @@
                         android:layout_marginBottom="10dp"
                         android:layout_marginStart="20dp"
                         android:layout_marginEnd="20dp"
+                        android:textSize="20sp"
+                        android:textColor="@color/inactive"
                         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
                     <Switch
@@ -89,6 +90,8 @@
                         android:layout_marginBottom="10dp"
                         android:layout_marginStart="20dp"
                         android:layout_marginEnd="20dp"
+                        android:textSize="20sp"
+                        android:textColor="@color/inactive"
                         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
                     <Switch
@@ -100,6 +103,8 @@
                         android:layout_marginBottom="10dp"
                         android:layout_marginStart="20dp"
                         android:layout_marginEnd="20dp"
+                        android:textColor="@color/inactive"
+                        android:textSize="20sp"
                         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
                     <Switch
@@ -111,10 +116,29 @@
                         android:layout_marginBottom="30dp"
                         android:layout_marginStart="20dp"
                         android:layout_marginEnd="20dp"
+                        android:textSize="20sp"
+                        android:textColor="@color/inactive"
                         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/btnLogout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_round_logout"
+                    android:gravity=""
+                    android:textColor="@color/inactive"
+                    android:padding="20dp"
+                    android:text="@string/log_out" />
+            </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
