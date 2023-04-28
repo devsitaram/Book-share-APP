@@ -20,7 +20,7 @@
             android:padding="10dp">
 
             <Button
-                android:id="@+id/btnBackToHome"
+                android:id="@+id/btnContactToHome"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="20dp"

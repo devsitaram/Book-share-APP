@@ -36,7 +36,7 @@ public class HomeFragment extends Fragment{
 
     // initialize the global variable
     RecyclerView hRecyclerView;
-    Button btnSettingMenu, btnNotification;
+    Button btnMenuItems, btnNotification;
     EditText editTextSearch;
     ArrayList<Books> arrBooksList;
     MenuFragment menuFragment = new MenuFragment();
@@ -70,10 +70,10 @@ public class HomeFragment extends Fragment{
         // initialization the variable
         editTextSearch = hView.findViewById(R.id.editTextSearch);
         btnNotification = hView.findViewById(R.id.btnNotification);
-        btnSettingMenu = hView.findViewById(R.id.btnSettingMenu);
+        btnMenuItems = hView.findViewById(R.id.btnSettingMenu);
 
         // setting menu button
-        btnSettingMenu.setOnClickListener(v -> {navigateMenu();});
+        btnMenuItems.setOnClickListener(v -> {navigateMenu();});
 
         // notification button
         btnNotification.setOnClickListener(view1 -> {

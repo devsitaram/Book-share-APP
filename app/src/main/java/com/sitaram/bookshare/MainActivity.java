@@ -1,4 +1,4 @@
-package com.sitaram.bookshare.features;
+package com.sitaram.bookshare;
 
 import androidx.appcompat.app.AppCompatActivity;
 

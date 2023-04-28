@@ -26,7 +26,7 @@ public class ContactFragment extends Fragment {
     Button btnBackToHome, btnShowEmailLayout, btnShowContactLayout, btnSendMail, btnCall, btnSearch;
     TextInputEditText inputTextEmail, inputTextSubject, inputTextMessages, inputTextSearch, inputTextContactNum;
     View cView, contactEmailLayout, contactPhoneLayout;
-
+    HomeFragment homeFragment = new HomeFragment();
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +49,7 @@ public class ContactFragment extends Fragment {
         contactEmailLayout = cView.findViewById(R.id.contactEmailLayout);
         contactPhoneLayout = cView.findViewById(R.id.contactPhoneLayout);
         // button
-        btnBackToHome = cView.findViewById(R.id.btnBackToHome);
+        btnBackToHome = cView.findViewById(R.id.btnContactToHome);
         btnSendMail = cView.findViewById(R.id.btnSendMail);
         btnCall = cView.findViewById(R.id.btnCall);
         btnSearch = cView.findViewById(R.id.btnGoogleSearch);
@@ -62,7 +62,7 @@ public class ContactFragment extends Fragment {
         inputTextContactNum = cView.findViewById(R.id.inputTextPhoneNumber);
 
         // button setOnClickListener methods
-        btnBackToHome.setOnClickListener(v -> navigateHome());
+        btnBackToHome.setOnClickListener(v -> navigateContactToHome());
         btnShowEmailLayout.setOnClickListener(v -> emailLayoutVisible());
         btnShowContactLayout.setOnClickListener(v -> contactLayoutVisible());
         btnSendMail.setOnClickListener(v -> sendMail());
@@ -74,9 +74,8 @@ public class ContactFragment extends Fragment {
     }
 
     // navigate into home
-    private void navigateHome(){
+    private void navigateContactToHome(){
         // go to the home fragment class
-        HomeFragment homeFragment = new HomeFragment();
         @SuppressLint("UseRequireInsteadOfGet")
         FragmentTransaction fragmentTransaction = Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.flMainContener, homeFragment).addToBackStack(null).commit();

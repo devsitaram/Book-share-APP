@@ -22,7 +22,7 @@
             android:name="com.sitaram.bookshare.features.menu.MenuActivity"
             android:exported="false" />
         <activity
-            android:name="com.sitaram.bookshare.features.MainActivity"
+            android:name="com.sitaram.bookshare.MainActivity"
             android:exported="false" />
         <activity
             android:name="com.sitaram.bookshare.features.login.LoginActivity"
@@ -32,6 +32,9 @@
             android:exported="false" />
         <activity
             android:name="com.sitaram.bookshare.features.slider.SplashScreenActivity"
+            android:exported="false"/>
+        <activity
+            android:name="com.sitaram.bookshare.features.setting.SettingActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

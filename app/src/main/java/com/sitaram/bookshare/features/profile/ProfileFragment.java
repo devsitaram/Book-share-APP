@@ -22,6 +22,7 @@ import android.widget.ImageView;
 
 import com.example.bookshare.R;
 import com.sitaram.bookshare.features.home.HomeFragment;
+import com.sitaram.bookshare.features.setting.SettingActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,8 +31,7 @@ public class ProfileFragment extends Fragment {
 
     RecyclerView pRecyclerView;
     List<CollectionPojo> collectionPojoList;
-
-    Button btnBackToHome;
+    Button btnBackToHome, btnGoSetting;
     private ImageView imageCapture;
     public static final int IMAGE_CODE = 1;
     Uri imageUri;
@@ -55,6 +55,7 @@ public class ProfileFragment extends Fragment {
         HomeFragment homeFragment = new HomeFragment();
 
         btnBackToHome = pView.findViewById(R.id.btnProfileToHome);
+        btnGoSetting = pView.findViewById(R.id.btnProfileToSetting);
         imageCapture = pView.findViewById(R.id.ivProfilePicture);
 
         setRecyclerView();// call this methods where set the recycler view
@@ -67,6 +68,7 @@ public class ProfileFragment extends Fragment {
                 fragmentTransaction.replace(R.id.flMainContener, homeFragment).addToBackStack(null).commit();
             }
         });
+        btnGoSetting.setOnClickListener(v -> navigateSetting());
 //        imageCapture.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -115,8 +117,14 @@ public class ProfileFragment extends Fragment {
         }
     }
 
+    // profile page to navigate setting page
+    private void navigateSetting(){
+//        startActivity(new Intent(getActivity(), SettingActivity.class));
+    }
+
     // set the collection image with recycler view
     public void setRecyclerView(){
+        // call the arrayList and contracture
         collectionPojoList = new ArrayList<>();
         collectionPojoList.add(new CollectionPojo(R.mipmap.img_mynatures, "Natures", "31 photos"));
         collectionPojoList.add(new CollectionPojo(R.mipmap.img_myanimals, "Animals", "22 photos"));

@@ -20,6 +20,7 @@ import com.sitaram.bookshare.features.product.helper.BookPojo;
 
 public class ProductFragment extends Fragment implements ProductContract.View{
 
+    RecyclerView pRecyclerView;
     Context context;
     View bookView;
     boolean isApiCall = true;
@@ -63,15 +64,15 @@ public class ProductFragment extends Fragment implements ProductContract.View{
     @SuppressLint("NotifyDataSetChanged")
     @Override
     public void setBooks(@NonNull BookPojo body) {
-        RecyclerView recyclerView = bookView.findViewById(R.id.rvBook);
+        pRecyclerView = bookView.findViewById(R.id.rvBook);
         ProductAdapter thisAdapter = new ProductAdapter(getActivity(), body.getBooks());
-        recyclerView.setAdapter(thisAdapter);
+        pRecyclerView.setAdapter(thisAdapter);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-        recyclerView.setLayoutManager(linearLayoutManager);
+        pRecyclerView.setLayoutManager(linearLayoutManager);
         thisAdapter.notifyDataSetChanged();
 
         // add divider
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),linearLayoutManager.getOrientation());
-        recyclerView.addItemDecoration(dividerItemDecoration);
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(pRecyclerView.getContext(),linearLayoutManager.getOrientation());
+        pRecyclerView.addItemDecoration(dividerItemDecoration);
     }
 }
