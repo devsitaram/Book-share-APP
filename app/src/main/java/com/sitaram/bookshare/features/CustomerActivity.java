@@ -1,16 +1,17 @@
 package com.sitaram.bookshare.features;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.bookshare.R;
 import com.sitaram.bookshare.features.database.DatabaseHelper;
 import com.sitaram.bookshare.features.database.User;
+
+import org.jetbrains.annotations.Contract;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,13 +61,15 @@ public class CustomerActivity extends AppCompatActivity {
      * add the new student data where call the constructor
      * return the abstract databases class's abstract studentDao method's insertAll method which accept the student list
      */
+    @Nullable
     private Completable insertStudents() {
         userList = new ArrayList<>();
         userList.add(new User("ram1010@gmail.com", "Manoj Thapa", "manoj123"));
         userList.add(new User( "manjil5555@gmail.com", "Sitaram Thing", "sitaram0001"));
         userList.add(new User("sitaram1111@gmail.com", "Aman Giri", "giri111"));
         Log.d("List of User ",":"+userList);
-        return databaseHelper.userDao().insertUser(userList);
+//        return databaseHelper.userDao().insertUser(userList);
+        return null;
     }
 
     @SuppressLint("CheckResult")
@@ -81,7 +84,10 @@ public class CustomerActivity extends AppCompatActivity {
                 });
     }
 
+    @Nullable
+    @Contract(pure = true)
     private Single<List<User>> getUserData(){
-        return databaseHelper.userDao().getUserDetails();
+        return null;
+//        return databaseHelper.userDao().getUserDetails();
     }
 }

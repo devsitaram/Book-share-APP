@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -96,7 +97,7 @@ public class HomeFragment extends Fragment implements HomeContract.View {
         });
 
         // edit text fields
-        editTextSearch.setOnTouchListener((viewText, event) -> {
+        editTextSearch.setOnTouchListener((View viewText, MotionEvent event) -> {
             setEditTextSearch(viewText);
             return false;
         });

@@ -1,6 +1,8 @@
 package com.sitaram.bookshare.features.login;
 
-import io.reactivex.rxjava3.core.Completable;
+import com.sitaram.bookshare.features.database.User;
+
+import io.reactivex.rxjava3.core.Single;
 
 public interface LoginContract {
 
@@ -9,19 +11,23 @@ public interface LoginContract {
         void loginSuccessMessage(String successMessage);
         void showErrorMessage(String errorMessage);
         void navigateHomePage();
-        boolean emailValidation(boolean show);
+        boolean emailValidation();
+        boolean usernameValidation();
+        boolean passwordValidation();
+//        boolean registerUser(List<User> userList);
+        void registerUser(String email, String username, String password);
     }
 
     // presenter interface class
     interface Presenter {
         void onCreate();
-        Completable registerButtonClick(String email, String name, String password);
+        void registerButtonClick(String email, String name, String password);
         void loginButtonClick(String username, String password);
-        void callDatabase(String username, String password);
     }
 
     // model interface class
     interface Model {
-        boolean callDatabase(String email, String password);
+//        boolean setRegister(List<User> userList);
+        Single<User> getLoginUser(String email, String password);
     }
 }

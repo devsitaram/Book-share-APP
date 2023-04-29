@@ -1,85 +1,77 @@
 package com.sitaram.bookshare.features.login;
 
 import android.content.Context;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-import com.sitaram.bookshare.features.database.DatabaseHelper;
 import com.sitaram.bookshare.features.database.User;
 
-import java.util.ArrayList;
-
-import io.reactivex.rxjava3.core.Completable;
+import java.util.List;
 
 public class LoginPresenter implements LoginContract.Presenter{
 
     Context context;
     private final LoginContract.View view;
-    private final LoginModel loginModel = new LoginModel();
-    DatabaseHelper databases;
-//    DatabaseHelper databases = DatabaseHelper.getInstance(this);
-    // constructor
+    List<User> userList;
+    LoginModel loginModel;
     public LoginPresenter(LoginContract.View view, Context context) {
         this.view = view;
         this.context = context;
     }
 
-    public void onCreate(){
-        databases = DatabaseHelper.getInstance(context);
-    }
-
-
-    // register data
-    public void registerDetails(@NonNull String email, String username, String password) {
-
-    }
-
+    public void onCreate(){}
 
     @Override
-    public Completable registerButtonClick(@NonNull String email, String username, String password) {
-        if (email.isEmpty()||username.isEmpty()||password.isEmpty()){
-            // unsuccessful message
-            view.showErrorMessage("The data is empty.");
-            return null;
+    public void registerButtonClick(@NonNull String email, String username, String password) {
+        if (email.isEmpty() && username.isEmpty() && password.isEmpty()){
+            view.showErrorMessage("The fields is empty!"); // unsuccessful message
         } else {
-            insertData(email, username, password);
-            databases = DatabaseHelper.getInstance(context);
-            ArrayList<User> userList = new ArrayList<>();
-            userList.add(new User(email, username, password)); // add the data in the list
-            Log.d("User Login Data: ", "Email: "+email+"Username: "+username+"Password: "+password);
-            databases.userDao().insertUser(userList);
-            return databases.userDao().insertUser(userList);
+            boolean validEmail = view.emailValidation();
+            boolean validName = view.usernameValidation();
+            boolean validPassword = view.passwordValidation();
+            if (validEmail && validName && validPassword) {
+                // call teh registerUserUser method
+                view.registerUser(email, username, password);
+            }
         }
     }
 
-    public void insertData(String email, String username, String password){
-
-    }
+    // insert new data
+//    public void registerUserDetails(String email, String username, String password){
+//            view.loginSuccessMessage("Register successful.");
+//            view.registerUser(email, username, password);
+//    }
+//    public void registerUsers(List<User> userList){
+//        loginModel = new LoginModel(context);
+//        userList = new ArrayList<>();
+//        userList.add(new User(email, username, password));
+//        boolean isSuccess = loginModel.setRegister(userList);
+//        if (isSuccess){
+//            view.loginSuccessMessage("Register successful.");
+//            view.registerUser(email, username, password);
+//        } else {
+//            view.showErrorMessage("The field is empty!");
+//        }
+//    }
 
     public void loginButtonClick(@NonNull String username, String password) {
         if (username.isEmpty() || password.isEmpty()) {
             // call the callLoginAPI methods
-            view.showErrorMessage("Email or Password is empty!");
+            view.showErrorMessage("The field is empty!");
         } else {
             callLoginDatabase(username, password);
         }
     }
 
-    @Override
-    public void callDatabase(String username, String password) {
-
-    }
-
     public void callLoginDatabase(String username, String password) {
         // call the LoginModel class's method
-        boolean isSuccessAPI = loginModel.callDatabase(username, password);
-        if (isSuccessAPI) {
-            view.loginSuccessMessage("Login successful.");
-            view.navigateHomePage();
-        } else {
-            view.showErrorMessage("Username and password is not success.");
-        }
+//        boolean isSuccessAPI = loginModel.getUser(username, password);
+//        if (isSuccessAPI) {
+//            view.loginSuccessMessage("Login successful.");
+//            view.navigateHomePage();
+//        } else {
+//            view.showErrorMessage("Username and password is not registered.");
+//        }
     }
 
 //    public Completable insertUser(@NonNull DatabaseHelper databases, String email, String username, String password) {

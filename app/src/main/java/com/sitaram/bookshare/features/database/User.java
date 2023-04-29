@@ -10,8 +10,6 @@ public class User {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "user_id")
     public int id;
-
-
     @ColumnInfo(name = "user_email")
     public String userEmail;
     @ColumnInfo(name = "user_name")

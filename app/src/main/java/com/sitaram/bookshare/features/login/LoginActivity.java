@@ -1,7 +1,5 @@
 package com.sitaram.bookshare.features.login;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,9 +8,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.bookshare.R;
 import com.google.android.material.textfield.TextInputEditText;
 import com.sitaram.bookshare.MainActivity;
-import com.example.bookshare.R;
 import com.sitaram.bookshare.features.database.DatabaseHelper;
 import com.sitaram.bookshare.features.database.User;
 
@@ -21,26 +23,29 @@ import java.util.List;
 import java.util.Objects;
 
 import io.reactivex.rxjava3.core.Completable;
-import io.reactivex.rxjava3.core.Single;
+import io.reactivex.rxjava3.core.CompletableObserver;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class LoginActivity extends AppCompatActivity implements LoginContract.View {
 
     // create an global variable
-    DatabaseHelper databases;
+    DatabaseHelper databaseHelper;
     List<User> userDataList;
+    private final CompositeDisposable compositeDisposable = new CompositeDisposable();
     Button btnLogin, btnSignUp, btnCheckBok, btnShowLogInPage, btnShowSignUpPage, btnGmail, btnFacebook, btnTwitter;
     View signUpLayout, logInLayout;
     LoginPresenter loginPresenter;
-    TextInputEditText editSignUpEmail, editSignUpUsername, editSignUpPassword, editLoginUsername, editLoginPasswords;
-
+    TextInputEditText editSignUpEmail, editSignUpUsername, editSignUpPassword, editLoginUsername, editLoginPassword;
+    String userEmail, userName, userPassword;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        databases = DatabaseHelper.getInstance(this);
-        loginPresenter = new LoginPresenter(this, this);
+        databaseHelper = DatabaseHelper.getInstance(this); // create an instance of database helper class
+        loginPresenter = new LoginPresenter(this,this);
 
         // initialize the signup input textFiled
         editSignUpEmail = findViewById(R.id.inputSignUpEmail);
@@ -48,7 +53,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         editSignUpPassword = findViewById(R.id.inputSignUpPassword);
         // initialize the login input textFiled
         editLoginUsername = findViewById(R.id.inputLoginUsername);
-        editLoginPasswords = findViewById(R.id.inputLoginPasswords);
+        editLoginPassword = findViewById(R.id.inputLoginPasswords);
 
         // button initialization
         btnLogin = findViewById(R.id.btnLogIn); // login botton
@@ -65,32 +70,39 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         signUpLayout = findViewById(R.id.signUpLayout); // logInLayout
         logInLayout = findViewById(R.id.logInLayout);
 
-        // get text fields text
-        String email = Objects.requireNonNull(editSignUpEmail.getText()).toString().trim();
-        String username = Objects.requireNonNull(editSignUpUsername.getText()).toString().trim();
-        String password = Objects.requireNonNull(editSignUpPassword.getText()).toString().trim();
-
         btnShowLogInPage.setOnClickListener(v -> loginFieldsVisible());
         btnShowSignUpPage.setOnClickListener(v -> signUpFieldsVisible());
 
         // signup button
-        btnSignUp.setOnClickListener(v -> {
-            if (emailValidation(true)){
-//            loginPresenter.insertUser(databases, email, username, password); // call the this methods where data can be insert in the database
-                loginFieldsVisible();
-            }
-        });
+        btnSignUp.setOnClickListener((View v) -> Objects.requireNonNull(insertData()).subscribeOn(Schedulers.io())
+            .subscribe(new CompletableObserver() {
+               @Override
+               public void onSubscribe(@NonNull Disposable disposable) {
+                   compositeDisposable.add(disposable);
+               }
+
+               @Override
+               public void onComplete() {
+                   // set recycler view
+               }
+
+               @Override
+               public void onError(@NonNull Throwable e) {
+               }
+           }
+        ));
 
         // login button
         btnLogin.setOnClickListener(v -> {
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-            startActivity(intent);
-            finish();
-//            setRecyclerView(username, password);
-//            loginPresenter.loginButtonClick(username, password); // call the loginButtonClick methods
+            // get text fields text
+            userName = Objects.requireNonNull(editLoginUsername.getText()).toString().trim();
+            userPassword = Objects.requireNonNull(editLoginPassword.getText()).toString().trim();
+            // call the login button click method
+            loginPresenter.loginButtonClick(userName, userPassword);
         });
     }
 
+    // login layout visibility
     @SuppressLint("UseCompatLoadingForDrawables")
     public void loginFieldsVisible() {
         btnShowSignUpPage.setTextColor(getResources().getColor(R.color.redColor, null));
@@ -101,6 +113,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         btnShowLogInPage.setTextColor(getResources().getColor(R.color.textColor, null));
     }
 
+    // signup layout visibility
     @SuppressLint("UseCompatLoadingForDrawables")
     public void signUpFieldsVisible() {
         btnShowSignUpPage.setBackground(getResources().getDrawable(R.drawable.switch_tricks, null));
@@ -121,44 +134,94 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show();
     }
 
+    // navigate login to home page
     public void navigateHomePage() {
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(intent);
         finish();
     }
 
+    // email validation
     @Override
-    public boolean emailValidation(boolean show) {
-        String email = Objects.requireNonNull(editSignUpEmail.getText()).toString().trim();
-        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+.+[a-z]+";
-        String noWhiteSpace = "\\A\\w{1,30}\\z";
+    public boolean emailValidation() {
+        // get text fields text
+        // pattern \\d is 0-9
+        String emailPattern = "[a-zA-Z\\d._-]+@[a-z]+.+[a-z]+";
         // check the email validation
-        if (email.isEmpty()) {
-            editSignUpEmail.setError("Field cannot be empty");
+        if (userEmail.isEmpty()) {
+            editSignUpEmail.setError("Email cannot be empty");
             return false;
-        } else if (!email.matches(emailPattern)) {
+        } else if (!userEmail.matches(emailPattern)) {
             editSignUpEmail.setError("Invalid email address");
-            return false;
-        } else if (!email.matches(noWhiteSpace)) {
-            editSignUpEmail.setError("White spaces are not allowed");
             return false;
         } else {
             editSignUpEmail.setError(null);
-            editSignUpEmail.setEnabled(false);
+            return true;
+        }
+    }
+
+    // username validation
+    @Override
+    public boolean usernameValidation() {
+        String usernamePattern = "[a-zA-z]+\\s+[a-zA-z]+";
+        // username
+        if (userName.isEmpty()) {
+            editSignUpUsername.setError("Username cannot be empty");
+            return false;
+        } else if (!userName.matches(usernamePattern)) {
+            editSignUpUsername.setError("Enter your name");
+            return false;
+        } else {
+            editSignUpUsername.setError(null);
             return true;
         }
     }
 
     /**
-     * create a registerUser methods
-     * create an object of arraylist which is userPojo class types of list
-     * add the new user data where call the constructor
-     * return the abstract databases class's abstract UserDao method's insertUser method which accept the user data's list
+     * create a passwordValidation methods
+     * this is the boolean types of methods where is can be check the validation of password
+     * check the new user data
+     * // at least 1 digit
+     * // at least 1 lower case letter
+     * // at least 1 upper case letter
+     * // at least 1 special character
+     * // no white spaces
+     * // at least 4 characters
+     * after valid the data the return true
+     * // String passwordPattern = "[a-zA-Z\\d-@#$%&]+";
+     * // String passwordPattern = "(?=.*[a-zA-Z][@#$%^&+=])";
      */
-    private Completable registerUser(String email, String name, String password) {
+    @Override
+    public boolean passwordValidation(){
+        if (userPassword.isEmpty()) {
+            editSignUpPassword.setError("Username cannot be empty");
+            return false;
+        } else {
+            editSignUpPassword.setError(null);
+            return true;
+        }
+    }
+
+    @Nullable
+    public Completable insertData() {
+        // initialize the variable
+        userEmail = Objects.requireNonNull(editSignUpEmail.getText()).toString().trim();
+        userName = Objects.requireNonNull(editSignUpUsername.getText()).toString().trim();
+        userPassword = Objects.requireNonNull(editSignUpPassword.getText()).toString().trim();
+
+        // call the register button click method
+        loginPresenter.registerButtonClick(userEmail, userName, userPassword);
+        Log.d("User List of data", ": "+userDataList);
+        return databaseHelper.userDao().insertUser(userDataList); // return the user data
+    }
+
+    @Override
+    public void registerUser(String email, String username, String password) {
         userDataList = new ArrayList<>();
-        userDataList.add(new User(email, name, password));
-        return databases.userDao().insertUser(userDataList);
+        userDataList.add(new User(email, username, password));
+        loginFieldsVisible(); // after register the to visible the login contener
+        loginSuccessMessage("Successful");
+        Log.d("User List of data", ": "+userDataList);
     }
 }
 
@@ -171,12 +234,10 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
 
 
 
-// data insert the user database
-//    private Completable insertUser(String email, String username, String password) {
-//        userPojoList = new ArrayList<>();
-//        userPojoList.add(new User(email, username, password));
-//        return databases.loginDao().insertUser(userPojoList);
-//    }
+
+
+
+
 
 
 // login with another application

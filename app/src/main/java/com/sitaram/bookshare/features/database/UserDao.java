@@ -18,7 +18,7 @@ public interface UserDao {
     Completable insertUser(List<User> userList);
 
     @Query("Select * from user")
-    Single<List<User>> getUserDetails();
+    Single<List<User>> getUsers();
 
     @Query("Select * From user Where user_name Like :nameName AND user_password Like :userPassword")
     Single<User> getLoginDetails(String nameName, String userPassword);
