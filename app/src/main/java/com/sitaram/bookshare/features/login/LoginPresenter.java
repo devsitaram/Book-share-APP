@@ -22,9 +22,10 @@ public class LoginPresenter implements LoginContract.Presenter{
     public void onCreate(){}
 
     @Override
-    public void registerButtonClick(@NonNull String email, String username, String password) {
+    public boolean registerButtonClick(@NonNull String email, String username, String password) {
         if (email.isEmpty() && username.isEmpty() && password.isEmpty()){
             view.showErrorMessage("The fields is empty!"); // unsuccessful message
+            return false;
         } else {
             boolean validEmail = view.emailValidation();
             boolean validName = view.usernameValidation();
@@ -32,6 +33,9 @@ public class LoginPresenter implements LoginContract.Presenter{
             if (validEmail && validName && validPassword) {
                 // call teh registerUserUser method
                 view.registerUser(email, username, password);
+                return true;
+            } else {
+                return false;
             }
         }
     }
@@ -54,12 +58,14 @@ public class LoginPresenter implements LoginContract.Presenter{
 //        }
 //    }
 
-    public void loginButtonClick(@NonNull String username, String password) {
+    public boolean loginButtonClick(@NonNull String username, String password) {
         if (username.isEmpty() || password.isEmpty()) {
             // call the callLoginAPI methods
             view.showErrorMessage("The field is empty!");
+            return false;
         } else {
             callLoginDatabase(username, password);
+            return true;
         }
     }
 

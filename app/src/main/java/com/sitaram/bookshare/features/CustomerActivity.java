@@ -77,8 +77,7 @@ public class CustomerActivity extends AppCompatActivity {
         getUserData()
                 .subscribeOn(Schedulers.io())
                 .subscribe((List<User> students) -> {
-                    ArrayList<User> usersList = new ArrayList<>();
-                    for (User user: usersList) {
+                    for (User user: students) {
                         Log.d("All the List :", "Data" + user);
                     }
                 });

@@ -1,9 +1,5 @@
 package com.sitaram.bookshare.features.login;
 
-import com.sitaram.bookshare.features.database.User;
-
-import io.reactivex.rxjava3.core.Single;
-
 public interface LoginContract {
 
     // view interface class
@@ -21,13 +17,13 @@ public interface LoginContract {
     // presenter interface class
     interface Presenter {
         void onCreate();
-        void registerButtonClick(String email, String name, String password);
-        void loginButtonClick(String username, String password);
+        boolean registerButtonClick(String email, String name, String password);
+        boolean loginButtonClick(String username, String password);
     }
 
     // model interface class
     interface Model {
 //        boolean setRegister(List<User> userList);
-        Single<User> getLoginUser(String email, String password);
+//        Single<User> getLoginUser(String email, String password);
     }
 }

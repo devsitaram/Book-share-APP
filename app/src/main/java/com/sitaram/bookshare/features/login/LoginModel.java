@@ -2,10 +2,6 @@ package com.sitaram.bookshare.features.login;
 
 import android.content.Context;
 
-import com.sitaram.bookshare.features.database.User;
-
-import io.reactivex.rxjava3.core.Single;
-
 public class LoginModel implements LoginContract.Model{
 
     Context context;
@@ -28,9 +24,9 @@ public class LoginModel implements LoginContract.Model{
 //        }
 
 
-    @Override
-    public Single<User> getLoginUser(String nameName, String userPassword) {
-//        return userDao.getLoginDetails(nameName, userPassword);
-        return null;
-    }
+//    @Override
+//    public Single<User> getLoginUser(String nameName, String userPassword) {
+////        return userDao.getLoginDetails(nameName, userPassword);
+//        return null;
+//    }
 }

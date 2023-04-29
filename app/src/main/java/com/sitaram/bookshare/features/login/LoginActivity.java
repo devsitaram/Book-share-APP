@@ -18,12 +18,15 @@ import com.sitaram.bookshare.MainActivity;
 import com.sitaram.bookshare.features.database.DatabaseHelper;
 import com.sitaram.bookshare.features.database.User;
 
+import org.jetbrains.annotations.Contract;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 import io.reactivex.rxjava3.core.Completable;
 import io.reactivex.rxjava3.core.CompletableObserver;
+import io.reactivex.rxjava3.core.Single;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
@@ -39,7 +42,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     LoginPresenter loginPresenter;
     TextInputEditText editSignUpEmail, editSignUpUsername, editSignUpPassword, editLoginUsername, editLoginPassword;
     String userEmail, userName, userPassword;
-    @SuppressLint("MissingInflatedId")
+    @SuppressLint({"MissingInflatedId", "CheckResult"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,7 +77,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         btnShowSignUpPage.setOnClickListener(v -> signUpFieldsVisible());
 
         // signup button
-        btnSignUp.setOnClickListener((View v) -> Objects.requireNonNull(insertData()).subscribeOn(Schedulers.io())
+        btnSignUp.setOnClickListener((View v) -> Objects.requireNonNull(insertUserData()).subscribeOn(Schedulers.io())
             .subscribe(new CompletableObserver() {
                @Override
                public void onSubscribe(@NonNull Disposable disposable) {
@@ -95,10 +98,17 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         // login button
         btnLogin.setOnClickListener(v -> {
             // get text fields text
-            userName = Objects.requireNonNull(editLoginUsername.getText()).toString().trim();
-            userPassword = Objects.requireNonNull(editLoginPassword.getText()).toString().trim();
-            // call the login button click method
-            loginPresenter.loginButtonClick(userName, userPassword);
+            Objects.requireNonNull(getLogin())
+                .subscribeOn(Schedulers.io())
+                .subscribe((List<User> users) -> {
+                    for (User user: users) {
+                        Log.d("All the List :", "Data" + user);
+                    }
+                });
+//            userName = Objects.requireNonNull(editLoginUsername.getText()).toString().trim();
+//            userPassword = Objects.requireNonNull(editLoginPassword.getText()).toString().trim();
+//            // call the login button click method
+//            loginPresenter.loginButtonClick(userName, userPassword);
         });
     }
 
@@ -132,13 +142,6 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     @Override
     public void showErrorMessage(String errorMessage) {
         Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show();
-    }
-
-    // navigate login to home page
-    public void navigateHomePage() {
-        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-        startActivity(intent);
-        finish();
     }
 
     // email validation
@@ -203,25 +206,59 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     }
 
     @Nullable
-    public Completable insertData() {
+    public Completable insertUserData() {
         // initialize the variable
         userEmail = Objects.requireNonNull(editSignUpEmail.getText()).toString().trim();
         userName = Objects.requireNonNull(editSignUpUsername.getText()).toString().trim();
         userPassword = Objects.requireNonNull(editSignUpPassword.getText()).toString().trim();
-
         // call the register button click method
-        loginPresenter.registerButtonClick(userEmail, userName, userPassword);
-        Log.d("User List of data", ": "+userDataList);
-        return databaseHelper.userDao().insertUser(userDataList); // return the user data
+        boolean isSuccessRegister = loginPresenter.registerButtonClick(userEmail, userName, userPassword);
+        if(isSuccessRegister) {
+            loginFieldsVisible(); // after register the to visible the login contener
+            loginSuccessMessage("Successful");
+            return databaseHelper.userDao().insertUser(userDataList); // return the user data
+        } else {
+            showErrorMessage("Username and password is not match.");
+            return null;
+        }
     }
 
     @Override
     public void registerUser(String email, String username, String password) {
         userDataList = new ArrayList<>();
         userDataList.add(new User(email, username, password));
-        loginFieldsVisible(); // after register the to visible the login contener
-        loginSuccessMessage("Successful");
-        Log.d("User List of data", ": "+userDataList);
+    }
+
+    // navigate login to home page
+    public void navigateHomePage() {
+        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+
+    //login to get username and password
+    @Nullable
+    @SuppressLint("CheckResult")
+    private Single<List<User>> getLogin() {
+        userName = Objects.requireNonNull(editLoginUsername.getText()).toString().trim();
+        userPassword = Objects.requireNonNull(editLoginPassword.getText()).toString().trim();
+//        getUserData(userName, userPassword);
+        boolean isLoginSuccess = loginPresenter.loginButtonClick(userName, userPassword);
+        if (isLoginSuccess){
+            return databaseHelper.userDao().getLoginDetails(userName,userPassword);
+        } else {
+            showErrorMessage("User name and password cannot be match");
+            return null;
+        }
+
+    }
+
+    // get all user data
+    @Nullable
+    @Contract(pure = true)
+    private Single<List<User>> getUsers() {
+        return databaseHelper.userDao().getUsers();
     }
 }
 
