@@ -55,6 +55,7 @@
 
                     <Button
                         android:id="@+id/btnLoginLayout"
+                        style="?android:attr/buttonBarButtonStyle"
                         android:layout_width="0dp"
                         android:layout_height="40dp"
                         android:layout_gravity="center"
@@ -70,10 +71,11 @@
                         android:textColor="@color/textColor"
                         android:textSize="15sp"
                         android:textStyle="bold|normal"
-                        style="?android:attr/buttonBarButtonStyle" />
+                        tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck,VisualLintButtonSize" />
 
                     <Button
                         android:id="@+id/btnSignupLayout"
+                        style="?android:attr/buttonBarButtonStyle"
                         android:layout_width="0dp"
                         android:layout_height="40dp"
                         android:layout_gravity="center"
@@ -89,7 +91,7 @@
                         android:textColor="@color/redColor"
                         android:textSize="15sp"
                         android:textStyle="bold|normal"
-                        style="?android:attr/buttonBarButtonStyle" />
+                        tools:ignore="TouchTargetSizeCheck,VisualLintButtonSize" />
 
                 </LinearLayout>
 
@@ -127,7 +129,8 @@
                             android:inputType="textPersonName"
                             android:textColor="@color/black"
                             android:textSize="13sp"
-                            android:textStyle="normal" />
+                            android:textStyle="normal"
+                            tools:ignore="TouchTargetSizeCheck,VisualLintTextFieldSize" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -152,7 +155,8 @@
                             android:inputType="textPassword"
                             android:textColor="@color/black"
                             android:textSize="13sp"
-                            android:textStyle="normal" />
+                            android:textStyle="normal"
+                            tools:ignore="VisualLintTextFieldSize" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -161,11 +165,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="left"
-                        android:layout_marginTop="10dp"
                         android:layout_marginStart="5dp"
+                        android:layout_marginTop="10dp"
                         android:layout_marginBottom="20dp"
+                        android:text="@string/remember_me"
                         android:textColor="#474545"
-                        android:text="@string/remember_me" />
+                        tools:ignore="RtlHardcoded,TouchTargetSizeCheck" />
 
                     <Button
                         android:id="@+id/btnLogIn"
@@ -181,7 +186,8 @@
                         android:textColor="@color/white"
                         android:textSize="17sp"
                         app:backgroundTint="@color/btnTextPink"
-                        app:shapeAppearanceOverlay="@style/ButtonStyle"/>
+                        app:shapeAppearanceOverlay="@style/ButtonStyle"
+                        tools:ignore="TextContrastCheck,VisualLintButtonSize" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -339,7 +345,8 @@
                         android:layout_gravity="center"
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
-                        android:background="@mipmap/ic_gmail_logo"/>
+                        android:background="@mipmap/ic_gmail_logo"
+                        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
                     <Button
                         android:id="@+id/btnLoginFacebook"
@@ -348,7 +355,8 @@
                         android:layout_gravity="center"
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
-                        android:background="@mipmap/ic_facebook_logo"/>
+                        android:background="@mipmap/ic_facebook_logo"
+                        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
                     <Button
                         android:id="@+id/btnLoginTwitter"
@@ -357,7 +365,8 @@
                         android:layout_gravity="center"
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
-                        android:background="@mipmap/ic_twitter_logo"/>
+                        android:background="@mipmap/ic_twitter_logo"
+                        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
                 </GridLayout>
 
             </LinearLayout>

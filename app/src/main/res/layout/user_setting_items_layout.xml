@@ -31,7 +31,8 @@
             android:layout_width="40dp"
             android:layout_height="30dp"
             android:layout_gravity="end"
-            android:background="@drawable/ic_keyboard_double_arrow_right" />
+            android:background="@drawable/ic_keyboard_double_arrow_right"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

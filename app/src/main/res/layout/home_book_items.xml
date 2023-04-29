@@ -27,11 +27,12 @@
             android:id="@+id/tvBookTitle"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:textAlignment="center"
             android:layout_marginTop="5dp"
+            android:text="@string/java_programming"
+            android:textAlignment="center"
             android:textColor="#4E4E4E"
-            android:text="@string/java_programming" />
+            android:textSize="20sp"
+            tools:ignore="TextSizeCheck" />
 
         <Button
             android:layout_width="wrap_content"

@@ -26,6 +26,7 @@ public class SliderActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_slider);
+
         btnSkip = findViewById(R.id.tvSliderSkip);
         btnBack = findViewById(R.id.tvSliderBack);
         btnNext = findViewById(R.id.tvSliderNext);

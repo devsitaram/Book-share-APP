@@ -1,11 +1,11 @@
 package com.sitaram.bookshare.features.slider;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bookshare.R;
 
@@ -18,9 +18,11 @@ public class SplashScreenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
         // use the postDelayed
         new Handler().postDelayed(() -> {
-            Intent intent = new Intent(SplashScreenActivity.this, SliderActivity.class);
-            startActivity(intent);
+
+            Intent intentSlider = new Intent(SplashScreenActivity.this, SliderActivity.class);
+            startActivity(intentSlider);
             finish();
+
         }, 500);
     }
 }

@@ -23,9 +23,10 @@
                 android:id="@+id/btnContactToHome"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="20dp"
                 android:layout_marginStart="5dp"
-                android:background="@drawable/arrow_back_sharp_icon" />
+                android:layout_marginTop="20dp"
+                android:background="@drawable/arrow_back_sharp_icon"
+                tools:ignore="SpeakableTextPresentCheck" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -51,6 +52,7 @@
 
                 <Button
                     android:id="@+id/btnEmailLayout"
+                    style="?android:attr/buttonBarButtonStyle"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
@@ -66,10 +68,11 @@
                     android:textColor="@color/textColor"
                     android:textSize="15sp"
                     android:textStyle="bold|normal"
-                    style="?android:attr/buttonBarButtonStyle" />
+                    tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck,VisualLintButtonSize" />
 
                 <Button
                     android:id="@+id/btnContactLayout"
+                    style="?android:attr/buttonBarButtonStyle"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
@@ -85,7 +88,7 @@
                     android:textColor="@color/redColor"
                     android:textSize="15sp"
                     android:textStyle="bold|normal"
-                    style="?android:attr/buttonBarButtonStyle" />
+                    tools:ignore="TextContrastCheck,TouchTargetSizeCheck,VisualLintButtonSize" />
             </LinearLayout>
 
             <LinearLayout
@@ -115,11 +118,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="10"
-                        android:textAllCaps="false"
                         android:inputType="textEmailAddress"
+                        android:textAllCaps="false"
                         android:textColor="@color/black"
                         android:textSize="20sp"
-                        android:textStyle="normal" />
+                        android:textStyle="normal"
+                        tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -138,11 +142,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="10"
-                        android:textAllCaps="false"
                         android:inputType="textEmailSubject"
+                        android:textAllCaps="false"
                         android:textColor="@color/black"
                         android:textSize="20sp"
-                        android:textStyle="normal" />
+                        android:textStyle="normal"
+                        tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -161,11 +166,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="10"
-                        android:textAllCaps="false"
                         android:inputType="textMultiLine"
+                        android:textAllCaps="false"
                         android:textColor="@color/black"
                         android:textSize="17sp"
-                        android:textStyle="normal" />
+                        android:textStyle="normal"
+                        tools:ignore="TextContrastCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -181,7 +187,8 @@
                     android:textColor="@color/white"
                     android:textSize="17sp"
                     app:backgroundTint="@color/btnTextPink"
-                    app:shapeAppearanceOverlay="@style/ButtonStyle" />
+                    app:shapeAppearanceOverlay="@style/ButtonStyle"
+                    tools:ignore="TextContrastCheck" />
 
             </LinearLayout>
 
@@ -286,8 +293,9 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_gravity="center"
+                    android:contentDescription="@null"
                     android:src="@mipmap/book_app_logo"
-                    android:contentDescription="@null" />
+                    tools:ignore="ImageContrastCheck" />
 
                 <TextView
                     android:layout_width="wrap_content"

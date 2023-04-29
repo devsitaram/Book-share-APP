@@ -33,7 +33,8 @@
                     android:layout_width="55dp"
                     android:layout_height="35dp"
                     android:layout_margin="10dp"
-                    android:background="@drawable/arrow_back_sharp_icon" />
+                    android:background="@drawable/arrow_back_sharp_icon"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -57,11 +58,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="25sp"
-                    android:layout_margin="15dp"
                     android:layout_gravity="start"
+                    android:layout_margin="15dp"
+                    android:text="@string/welcome_to_our_app"
                     android:textColor="@color/textOrange"
-                    android:text="@string/welcome_to_our_app"/>
+                    android:textSize="25sp"
+                    tools:ignore="TextContrastCheck" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -73,7 +75,8 @@
                     android:textColor="@color/white"
                     android:text="@string/book_share_app_can_be_a_book_designed_and_researched_to_provide_for_book_lovers_where_this_app_offers_various_books_across_various_genres_including_fiction_non_fiction_romance_thriller_science_fiction_and_more"
                     android:justificationMode="inter_word"
-                    tools:targetApi="o" />
+                    tools:targetApi="o"
+                    tools:ignore="VisualLintLongText" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -85,7 +88,8 @@
                     android:textColor="#FFFFFF"
                     android:text="@string/you_can_browse_and_purchase_books_directly_from_the_app_and_read_reviews_see_ratings_and_connect_with_other_readers_to_discuss_your_favourite_titles_you_can_join_book_clubs_and_participate_in_reading_challenges_to_stay_motivated_and_engaged"
                     android:justificationMode="inter_word"
-                    tools:targetApi="o" />
+                    tools:targetApi="o"
+                    tools:ignore="VisualLintLongText" />
 
                 <TextView
                     android:layout_width="wrap_content"

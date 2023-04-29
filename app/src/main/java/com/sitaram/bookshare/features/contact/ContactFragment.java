@@ -27,6 +27,7 @@ public class ContactFragment extends Fragment {
     TextInputEditText inputTextEmail, inputTextSubject, inputTextMessages, inputTextSearch, inputTextContactNum;
     View cView, contactEmailLayout, contactPhoneLayout;
     HomeFragment homeFragment = new HomeFragment();
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +35,6 @@ public class ContactFragment extends Fragment {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return cView = inflater.inflate(R.layout.fragment_contract, container, false);
     }
 
@@ -74,7 +74,7 @@ public class ContactFragment extends Fragment {
     }
 
     // navigate into home
-    private void navigateContactToHome(){
+    private void navigateContactToHome() {
         // go to the home fragment class
         @SuppressLint("UseRequireInsteadOfGet")
         FragmentTransaction fragmentTransaction = Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction();
@@ -122,21 +122,21 @@ public class ContactFragment extends Fragment {
     }
 
     // contact with another person
-    private void call(){
+    private void call() {
         Intent call = new Intent(Intent.ACTION_DIAL);
         String contactNumber = Objects.requireNonNull(inputTextContactNum.getText()).toString();
-        call.setData(Uri.parse("tel: "+contactNumber));
+        call.setData(Uri.parse("tel: " + contactNumber));
         startActivity(call);
         inputTextContactNum.setText("");
     }
 
     // google search
-    private void googleSearch(String searchText){
-        try{
+    private void googleSearch(String searchText) {
+        try {
             Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
             intent.putExtra(SearchManager.QUERY, searchText);
             startActivity(intent);
-        }catch (Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
             googleSearch(searchText); // recall the methods
         }

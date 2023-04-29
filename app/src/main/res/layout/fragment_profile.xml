@@ -36,7 +36,8 @@
                         android:id="@+id/btnProfileToHome"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/arrow_back_sharp_icon" />
+                        android:background="@drawable/arrow_back_sharp_icon"
+                        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -55,7 +56,8 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_gravity="center"
-                        android:background="@drawable/ic_menu_setting" />
+                        android:background="@drawable/ic_menu_setting"
+                        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
                 </LinearLayout>
 
@@ -228,7 +230,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:text="@string/my_collections"
-                    android:textColor="@color/textOrange"
+                    android:textColor="#EF6C00"
                     android:textStyle="bold" />
 
 
@@ -259,7 +261,8 @@
                                 android:layout_gravity="center"
                                 android:layout_margin="15dp"
                                 android:background="@drawable/ic_add_to_photos"
-                                android:textSize="15sp" />
+                                android:textSize="15sp"
+                                tools:ignore="SpeakableTextPresentCheck" />
 
                         </androidx.cardview.widget.CardView>
 
@@ -278,7 +281,8 @@
                     android:layout_margin="10dp"
                     android:text="@string/personal_details"
                     android:textColor="@color/textOrange"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:ignore="TextContrastCheck" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -346,7 +350,8 @@
                     android:layout_margin="10dp"
                     android:text="@string/social_media"
                     android:textColor="@color/textOrange"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:ignore="TextContrastCheck" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"

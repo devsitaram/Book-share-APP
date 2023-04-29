@@ -60,14 +60,12 @@ public class ProfileFragment extends Fragment {
 
         setRecyclerView();// call this methods where set the recycler view
 
-        btnBackToHome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // go to the home fragment class
-                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.flMainContener, homeFragment).addToBackStack(null).commit();
-            }
+        btnBackToHome.setOnClickListener(v -> {
+            // go to the home fragment class
+            FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.flMainContener, homeFragment).addToBackStack(null).commit();
         });
+
         btnGoSetting.setOnClickListener(v -> navigateSetting());
 //        imageCapture.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -87,9 +85,7 @@ public class ProfileFragment extends Fragment {
 //            }
 //        });
 
-        imageCapture.setOnClickListener(v -> {
-            takePictureFromGallery();
-        });
+        imageCapture.setOnClickListener(v -> takePictureFromGallery());
     }
 
 //    public void takeProfilePicture(){
@@ -119,7 +115,7 @@ public class ProfileFragment extends Fragment {
 
     // profile page to navigate setting page
     private void navigateSetting(){
-//        startActivity(new Intent(getActivity(), SettingActivity.class));
+        startActivity(new Intent(getActivity(), SettingActivity.class));
     }
 
     // set the collection image with recycler view
