@@ -3,12 +3,10 @@ package com.sitaram.bookshare.features.login;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,15 +16,13 @@ import com.sitaram.bookshare.MainActivity;
 import com.sitaram.bookshare.features.database.DatabaseHelper;
 import com.sitaram.bookshare.features.database.User;
 
-import org.jetbrains.annotations.Contract;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import io.reactivex.rxjava3.annotations.NonNull;
 import io.reactivex.rxjava3.core.Completable;
 import io.reactivex.rxjava3.core.CompletableObserver;
-import io.reactivex.rxjava3.core.Single;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
@@ -40,8 +36,8 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     Button btnLogin, btnSignUp, btnCheckBok, btnShowLogInPage, btnShowSignUpPage, btnGmail, btnFacebook, btnTwitter;
     View signUpLayout, logInLayout;
     LoginPresenter loginPresenter;
-    TextInputEditText editSignUpEmail, editSignUpUsername, editSignUpPassword, editLoginUsername, editLoginPassword;
-    String userEmail, userName, userPassword;
+     TextInputEditText editSignUpEmail, editSignUpUsername, editSignUpPassword, editLoginUsername, editLoginPassword;
+     String userEmail, userName, userPassword;
     @SuppressLint({"MissingInflatedId", "CheckResult"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,39 +73,37 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         btnShowSignUpPage.setOnClickListener(v -> signUpFieldsVisible());
 
         // signup button
-        btnSignUp.setOnClickListener((View v) -> Objects.requireNonNull(insertUserData()).subscribeOn(Schedulers.io())
-            .subscribe(new CompletableObserver() {
-               @Override
-               public void onSubscribe(@NonNull Disposable disposable) {
-                   compositeDisposable.add(disposable);
-               }
+        btnSignUp.setOnClickListener(v -> Objects.requireNonNull(insertUserData()).subscribeOn(Schedulers.io())
+                .subscribe(new CompletableObserver() {
+                    @Override
+                    public void onSubscribe(@NonNull Disposable disposable) {
+                        compositeDisposable.add(disposable);
+                    }
 
-               @Override
-               public void onComplete() {
-                   // set recycler view
-               }
+                    @Override
+                    public void onComplete() {
+                        // recycler view
+                    }
 
-               @Override
-               public void onError(@NonNull Throwable e) {
-               }
-           }
-        ));
+                    @Override
+                    public void onError(@NonNull Throwable e) {
+
+                    }
+                }));
 
         // login button
-        btnLogin.setOnClickListener(v -> {
-            // get text fields text
-            Objects.requireNonNull(getLogin())
-                .subscribeOn(Schedulers.io())
-                .subscribe((List<User> users) -> {
-                    for (User user: users) {
-                        Log.d("All the List :", "Data" + user);
-                    }
-                });
-//            userName = Objects.requireNonNull(editLoginUsername.getText()).toString().trim();
-//            userPassword = Objects.requireNonNull(editLoginPassword.getText()).toString().trim();
-//            // call the login button click method
-//            loginPresenter.loginButtonClick(userName, userPassword);
-        });
+        btnLogin.setOnClickListener(v -> getLogin());
+    }
+
+    public void getLogin(){
+        userName = Objects.requireNonNull(editLoginUsername.getText()).toString().trim();
+        userPassword = Objects.requireNonNull(editLoginPassword.getText()).toString().trim();
+        // check the username and password
+        if(databaseHelper.userDao().loginDetails(userName, userPassword)){
+            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+        } else {
+            showErrorMessage("invalid username and password.");
+        }
     }
 
     // login layout visibility
@@ -236,30 +230,6 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         finish();
     }
 
-
-    //login to get username and password
-    @Nullable
-    @SuppressLint("CheckResult")
-    private Single<List<User>> getLogin() {
-        userName = Objects.requireNonNull(editLoginUsername.getText()).toString().trim();
-        userPassword = Objects.requireNonNull(editLoginPassword.getText()).toString().trim();
-//        getUserData(userName, userPassword);
-        boolean isLoginSuccess = loginPresenter.loginButtonClick(userName, userPassword);
-        if (isLoginSuccess){
-            return databaseHelper.userDao().getLoginDetails(userName,userPassword);
-        } else {
-            showErrorMessage("User name and password cannot be match");
-            return null;
-        }
-
-    }
-
-    // get all user data
-    @Nullable
-    @Contract(pure = true)
-    private Single<List<User>> getUsers() {
-        return databaseHelper.userDao().getUsers();
-    }
 }
 
 

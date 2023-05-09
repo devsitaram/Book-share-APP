@@ -22,8 +22,5 @@ public interface LoginContract {
     }
 
     // model interface class
-    interface Model {
-//        boolean setRegister(List<User> userList);
-//        Single<User> getLoginUser(String email, String password);
-    }
+    interface Model {}
 }

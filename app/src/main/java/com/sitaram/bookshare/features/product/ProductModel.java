@@ -9,6 +9,14 @@ import retrofit2.Retrofit;
 
 public class ProductModel implements ProductContract.Model {
 
+//    // book search by id
+//    @Override
+//    public Call<BookPojo> getSearchBook(String bookId) {
+//        Retrofit retrofit = ApiCallInstance.getRetrofitInstance();
+//        return retrofit.create(ApiServices.class).getSearchBook(bookId);
+//    }
+
+    // get all book details
     @Override
     public Call<BookPojo> getBooks() {
         Retrofit retrofit = ApiCallInstance.getRetrofitInstance();

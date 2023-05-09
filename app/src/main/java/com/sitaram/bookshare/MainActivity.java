@@ -1,15 +1,14 @@
 package com.sitaram.bookshare;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bookshare.R;
 import com.sitaram.bookshare.features.home.HomeFragment;
 
 public class MainActivity extends AppCompatActivity {
-
     @SuppressLint({"ClickableViewAccessibility", "MissingInflatedId"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -18,13 +18,12 @@ public interface ProductContract {
 
     interface Presenter {
         void setBooks();
-
 //        void setSearchBooks(String query);
     }
 
     interface Model {
         Call<BookPojo> getBooks();
 
-//        Call<List<BookPojo>> getSearchBooks(String query);
+//        Call<BookPojo> getSearchBook(String query);
     }
 }

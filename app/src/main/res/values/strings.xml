@@ -107,4 +107,9 @@
     <string name="receive_special_offer">Receive special offer</string>
     <string name="receive_update">Receive Update</string>
     <string name="log_out">Log out</string>
+    <string name="for_you">For you</string>
+    <string name="top_list">Top List</string>
+    <string name="favorite">Favorite</string>
+    <string name="favourite">Favourite</string>
+    <string name="trending">Trending</string>
 </resources>

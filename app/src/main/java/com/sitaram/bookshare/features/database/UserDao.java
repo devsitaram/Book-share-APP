@@ -20,7 +20,7 @@ public interface UserDao {
     @Query("Select * FROM user")
     Single<List<User>> getUsers();
 
-    @Query("Select * FROM user WHERE user_name LIKE :nameName AND user_password LIKE :userPassword")
-    Single<List<User>> getLoginDetails(String nameName, String userPassword);
+    @Query("SELECT EXISTS(SELECT * FROM user WHERE user_name =:nameName AND user_password =:userPassword)")
+    boolean loginDetails(String nameName, String userPassword);
 
 }
