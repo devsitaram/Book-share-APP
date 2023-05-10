@@ -4,11 +4,11 @@ package com.sitaram.bookshare.features.tv;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.fragment.app.FragmentPagerAdapter;
 
 import java.util.ArrayList;
 
-public class ViewPagerAdapter extends FragmentStatePagerAdapter {
+public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     private final ArrayList<Fragment> fragmentArrayList = new ArrayList<>();
     private final ArrayList<String> fragmentTitle = new ArrayList<>();
@@ -30,16 +30,14 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
 
     // create a methods
-    public void addFragment(Fragment fragment, String title){
+    public void addFragment(Fragment fragment, String title) {
         fragmentArrayList.add(fragment);
         fragmentTitle.add(title);
-
-
     }
 
     @NonNull
     @Override
-    public CharSequence getPageTitle(int position){
+    public CharSequence getPageTitle(int position) {
         return fragmentTitle.get(position);
     }
 }
