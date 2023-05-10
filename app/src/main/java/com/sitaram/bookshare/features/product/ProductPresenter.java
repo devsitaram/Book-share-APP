@@ -18,26 +18,6 @@ public class ProductPresenter implements ProductContract.Presenter{
         this.mView = mView;
     }
 
-//    @Override
-    public void setSearchBooks(String id) {
-        productModel.getBooks().enqueue(new Callback<BookPojo>() {
-            @Override
-            public void onResponse(@NonNull Call<BookPojo> call, @NonNull Response<BookPojo> response) {
-                if (response.isSuccessful()) {
-                    mView.setBooks(response.body());
-                    mView.successMessage("Api call Success.");
-                } else {
-                    mView.errorMessage("Api call BookPojo is error.");
-                }
-            }
-            @Override
-            public void onFailure(@NonNull Call<BookPojo> call, @NonNull Throwable throwable) {
-                throwable.printStackTrace();
-                Log.d("onFailure", "Api call BookPojo is fails: " + throwable);
-            }
-        });
-    }
-
     @Override
     public void setBooks() {
         productModel.getBooks().enqueue(new Callback<BookPojo>() {
@@ -58,4 +38,25 @@ public class ProductPresenter implements ProductContract.Presenter{
             }
         });
     }
+
+
+    //    @Override
+//    public void setSearchBooks(String id) {
+//        productModel.getBooks().enqueue(new Callback<BookPojo>() {
+//            @Override
+//            public void onResponse(@NonNull Call<BookPojo> call, @NonNull Response<BookPojo> response) {
+//                if (response.isSuccessful()) {
+//                    mView.setBooks(response.body());
+//                    mView.successMessage("Api call Success.");
+//                } else {
+//                    mView.errorMessage("Api call BookPojo is error.");
+//                }
+//            }
+//            @Override
+//            public void onFailure(@NonNull Call<BookPojo> call, @NonNull Throwable throwable) {
+//                throwable.printStackTrace();
+//                Log.d("onFailure", "Api call BookPojo is fails: " + throwable);
+//            }
+//        });
+//    }
 }

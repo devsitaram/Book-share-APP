@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.sitaram.bookshare.features.product.ProductFragment">
+    tools:context="com.sitaram.bookshare.features.tv.ProductActivity">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:background="@mipmap/img_product_packground"
-        tools:ignore="UselessParent">
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:orientation="horizontal"
@@ -85,80 +87,27 @@
 
         </LinearLayout>
 
-<!--            <androidx.viewpager.widget.ViewPager-->
-<!--                android:id="@+id/tapViewPager"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content">-->
-
-<!--                <com.google.android.material.tabs.TabLayout-->
-<!--                    android:id="@+id/tapLayout"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    tools:ignore="ScrollViewSize">-->
-
-<!--                    <com.google.android.material.tabs.TabItem-->
-<!--                        android:id="@+id/tapFirst"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:padding="10dp"-->
-<!--                        android:layout_marginStart="10dp"-->
-<!--                        android:text="@string/for_you"-->
-<!--                        android:textAllCaps="false" />-->
-
-<!--                    <com.google.android.material.tabs.TabItem-->
-<!--                        android:id="@+id/tapSecond"-->
-<!--                        android:layout_width="100dp"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:padding="10dp"-->
-<!--                        android:layout_marginStart="10dp"-->
-<!--                        android:text="@string/favorite"-->
-<!--                        android:backgroundTint="@color/black"-->
-<!--                        android:background="#0C0C0C"-->
-<!--                        android:textAllCaps="false" />-->
-
-<!--                    <com.google.android.material.tabs.TabItem-->
-<!--                        android:id="@+id/tapThird"-->
-<!--                        android:layout_width="100dp"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:padding="10dp"-->
-<!--                        android:layout_marginStart="10dp"-->
-<!--                        android:text="@string/top_list"-->
-<!--                        android:backgroundTint="@color/black"-->
-<!--                        android:background="#0C0C0C"-->
-<!--                        android:textAllCaps="false" />-->
-
-<!--                    <com.google.android.material.tabs.TabItem-->
-<!--                        android:id="@+id/tapFourth"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:padding="10dp"-->
-<!--                        android:layout_marginStart="10dp"-->
-<!--                        android:text="Stories"-->
-<!--                        android:textAllCaps="false"-->
-<!--                        tools:ignore="HardcodedText" />-->
-
-<!--                    <com.google.android.material.tabs.TabItem-->
-<!--                        android:id="@+id/tapFifth"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:padding="10dp"-->
-<!--                        android:layout_marginStart="10dp"-->
-<!--                        android:text="Library"-->
-<!--                        android:textAllCaps="false"-->
-<!--                        tools:ignore="HardcodedText" />-->
-
-<!--                </com.google.android.material.tabs.TabLayout>-->
-<!--            </androidx.viewpager.widget.ViewPager>-->
-
-        <LinearLayout
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvBook"
-                android:layout_width="match_parent"
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="15dp"/>
-        </LinearLayout>
+                android:text="@string/for_you" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/trending" />
+        </com.google.android.material.tabs.TabLayout>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/purple_200"
+            tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
     </LinearLayout>
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

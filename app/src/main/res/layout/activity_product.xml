@@ -6,46 +6,6 @@
     android:layout_height="match_parent"
     tools:context="com.sitaram.bookshare.features.tv.ProductActivity">
 
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:orientation="vertical"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent">-->
-
-
-<!--&lt;!&ndash;        <com.google.android.material.tabs.TabLayout&ndash;&gt;-->
-<!--&lt;!&ndash;            android:id="@+id/tabLayout"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_width="match_parent"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_height="wrap_content">&ndash;&gt;-->
-
-<!--&lt;!&ndash;            <com.google.android.material.tabs.TabItem&ndash;&gt;-->
-<!--&lt;!&ndash;                android:layout_width="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;                android:text="@string/for_you" />&ndash;&gt;-->
-
-<!--&lt;!&ndash;            <com.google.android.material.tabs.TabItem&ndash;&gt;-->
-<!--&lt;!&ndash;                android:layout_width="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;                android:text="@string/favourite" />&ndash;&gt;-->
-
-<!--&lt;!&ndash;            <com.google.android.material.tabs.TabItem&ndash;&gt;-->
-<!--&lt;!&ndash;                android:layout_width="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;                android:layout_height="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;                android:text="@string/trending" />&ndash;&gt;-->
-<!--&lt;!&ndash;        </com.google.android.material.tabs.TabLayout>&ndash;&gt;-->
-
-<!--&lt;!&ndash;        <androidx.viewpager.widget.ViewPager&ndash;&gt;-->
-<!--&lt;!&ndash;            android:id="@+id/viewPager"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_width="match_parent"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;-->
-<!--&lt;!&ndash;            android:background="@color/purple_200"&ndash;&gt;-->
-<!--&lt;!&ndash;            tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck" />&ndash;&gt;-->
-
-<!--    </LinearLayout>-->
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -1,7 +1,6 @@
 package com.sitaram.bookshare.features.product;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,19 +9,18 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import com.example.bookshare.R;
+import com.google.android.material.tabs.TabLayout;
+import com.sitaram.bookshare.features.product.firstviewpager.ForYouBookFragment;
 import com.sitaram.bookshare.features.product.helper.BookPojo;
+import com.sitaram.bookshare.features.product.secondviewpager.TrendingBookFragment;
 
-public class ProductFragment extends Fragment implements ProductContract.View{
+public class ProductFragment extends Fragment implements ProductContract.View {
 
-    RecyclerView pRecyclerView;
-    Context context;
     View bookView;
-    boolean isApiCall = true;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,20 +29,25 @@ public class ProductFragment extends Fragment implements ProductContract.View{
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return bookView = inflater.inflate(R.layout.fragment_product, container, false);
+        bookView = inflater.inflate(R.layout.fragment_product, container, false);
+        // assign variable
+        TabLayout tabLayout = bookView.findViewById(R.id.tabLayout);
+        ViewPager viewPager = bookView.findViewById(R.id.viewPager);
+
+        tabLayout.setupWithViewPager(viewPager);
+        // create an view pager adapter and set the different fragment page
+        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getChildFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+        viewPagerAdapter.addFragment(new ForYouBookFragment(), "For You");
+        viewPagerAdapter.addFragment(new TrendingBookFragment(), "Trending");
+//        viewPagerAdapter.addFragment(new FavouriteFragment(), "Favourite");
+        // set the view pager adapter in view pager
+        viewPager.setAdapter(viewPagerAdapter);
+        return bookView;
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, Bundle savedInstenceState) {
-        super.onViewCreated(view, savedInstenceState);
+    public void setBooks(BookPojo body) {
 
-        // call the api only one time
-        if(isApiCall){
-            // create an object of the bookPresenter class and call the setBook method
-            ProductPresenter productPresenter = new ProductPresenter(this);
-            productPresenter.setBooks();
-            isApiCall = false;
-        }
     }
 
     // if the system can be valid perform then show the successMessage with toast message
@@ -60,19 +63,4 @@ public class ProductFragment extends Fragment implements ProductContract.View{
         Toast.makeText(getActivity(), error, Toast.LENGTH_LONG).show();
     }
 
-    // this methods can be add the recycler view
-    @SuppressLint("NotifyDataSetChanged")
-    @Override
-    public void setBooks(@NonNull BookPojo body) {
-        pRecyclerView = bookView.findViewById(R.id.rvBook);
-        ProductAdapter thisAdapter = new ProductAdapter(getActivity(), body.getBooks());
-        pRecyclerView.setAdapter(thisAdapter);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
-        pRecyclerView.setLayoutManager(linearLayoutManager);
-        thisAdapter.notifyDataSetChanged();
-
-        // add divider
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(pRecyclerView.getContext(),linearLayoutManager.getOrientation());
-        pRecyclerView.addItemDecoration(dividerItemDecoration);
-    }
 }

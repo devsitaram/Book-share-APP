@@ -1,4 +1,4 @@
-package com.sitaram.bookshare.features.product;
+package com.sitaram.bookshare.features.product.firstviewpager;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -21,7 +21,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
     Context context;
     List<BooksItem> bookPojoList;
-
     public ProductAdapter(Context context, List<BooksItem> bookPojoList) {
         this.context = context;
         this.bookPojoList = bookPojoList;
@@ -47,7 +46,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         holder.tvDetail.setText("Details: " + book.getDetail());
         // or whatever you want
         Glide.with(holder.itemView.getContext()).load(book.getUrl()).into(holder.ivImage);
-
     }
 
     @Override
