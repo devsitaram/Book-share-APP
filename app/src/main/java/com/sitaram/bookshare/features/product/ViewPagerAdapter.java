@@ -28,7 +28,6 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
         return fragmentArrayList.size();
     }
 
-
     // create a methods
     public void addFragment(Fragment fragment, String title) {
         fragmentArrayList.add(fragment);

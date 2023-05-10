@@ -2,18 +2,10 @@ package com.sitaram.bookshare.features.home;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
-
 import android.app.SearchManager;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -23,12 +15,17 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.bookshare.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.sitaram.bookshare.features.about.AboutFragment;
 import com.sitaram.bookshare.features.contact.ContactFragment;
 import com.sitaram.bookshare.features.menu.MenuActivity;
-import com.sitaram.bookshare.features.menu.MenuFragment;
 import com.sitaram.bookshare.features.product.ProductFragment;
 import com.sitaram.bookshare.features.profile.ProfileFragment;
 
@@ -92,8 +89,8 @@ public class HomeFragment extends Fragment implements HomeContract.View {
         // user profile
         ivUserProfile.setOnClickListener(v -> {
             // go to the profile fragment class
-            fragmentTransaction.replace(R.id.flMainContener, profileFragment);
-            fragmentTransaction.addToBackStack(null).commit();
+            FragmentTransaction fragmentTransaction = requireActivity().getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.flMainContener, profileFragment).addToBackStack(null).commit();
         });
 
         // edit text fields

@@ -3,25 +3,171 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:padding="15dp">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="310dp"
+    <androidx.core.widget.NestedScrollView
+        android:orientation="vertical"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:cardCornerRadius="15dp">
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintTop_toTopOf="parent" >
 
-        <ImageView
-            android:id="@+id/ivBookImageList"
-            android:layout_width="310dp"
-            android:layout_height="450dp"
-            android:layout_gravity="center"
-            android:contentDescription="@null"
-            android:src="@mipmap/img_myfoods"
-            tools:ignore="PxUsage" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
 
-    </androidx.cardview.widget.CardView>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="15dp">
+
+                    <ImageView
+                        android:id="@+id/ivBookImageList"
+                        android:layout_width="150dp"
+                        android:layout_height="250dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="@null"
+                        android:src="@mipmap/img_myfoods"
+                        tools:ignore="PxUsage" />
+                </androidx.cardview.widget.CardView>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="15dp"
+                    android:layout_margin="15dp">
+
+                    <TextView
+                        android:id="@+id/tvBookTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:textStyle="bold"
+                        android:textSize="17sp"
+                        android:text="@string/title"/>
+
+                    <TextView
+                        android:id="@+id/tvBookId"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:textStyle="bold"
+                        android:textSize="17sp"
+                        android:text="@string/id"/>
+
+                    <TextView
+                        android:id="@+id/tvBookPublishDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        android:text="@string/date"/>
+
+                    <TextView
+                        android:id="@+id/tvBookRating"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:textStyle="bold"
+                        android:textSize="17sp"
+                        android:text="@string/rating"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:text="@string/the_book_written"/>
+
+                    <TextView
+                        android:id="@+id/tvBookWriter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:text="@string/author"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="40dp"
+                    android:layout_gravity="end">
+
+                    <TextView
+                        android:id="@+id/tvBookPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/redColor"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:text="@string/rs_200"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:text="@string/description"/>
+
+                    <TextView
+                        android:id="@+id/tvBookDesc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:justificationMode="inter_word"
+                        android:textSize="17sp"
+                        android:text="@string/book_share_app_can_be_a_book_designed_and_researched_to_provide_for_book_lovers_where_this_app_offers_various_books_across_various_genres_including_fiction_non_fiction_romance_thriller_science_fiction_and_more"
+                        tools:ignore="UnusedAttribute,VisualLintLongText" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/redColor"
+                        android:textColor="@color/white"
+                        android:textAllCaps="false"
+                        android:text="@string/buy_now"
+                        android:textSize="20sp"
+                        android:layout_margin="20dp"
+                        tools:ignore="VisualLintButtonSize">
+
+                    </Button>
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

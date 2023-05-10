@@ -2,12 +2,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FAF2F2"
     tools:context="com.sitaram.bookshare.features.product.secondviewpager.TrendingBookFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvTrendingBook"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"/>
+        android:layout_margin="20dp"/>
 
 </FrameLayout>

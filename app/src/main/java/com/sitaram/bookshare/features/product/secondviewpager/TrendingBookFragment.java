@@ -1,7 +1,6 @@
 package com.sitaram.bookshare.features.product.secondviewpager;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +9,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,7 +20,6 @@ import com.sitaram.bookshare.features.product.helper.BookPojo;
 public class TrendingBookFragment extends Fragment implements ProductContract.View {
 
     RecyclerView bRecyclerView;
-    Context context;
     View bookView;
     boolean isApiCall = true;
     @Override
@@ -76,7 +73,7 @@ public class TrendingBookFragment extends Fragment implements ProductContract.Vi
         bookAdapter.notifyDataSetChanged();
 
         // add divider
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(bRecyclerView.getContext(),linearLayoutManager.getOrientation());
-        bRecyclerView.addItemDecoration(dividerItemDecoration);
+//        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(bRecyclerView.getContext(),linearLayoutManager.getOrientation());
+//        bRecyclerView.addItemDecoration(dividerItemDecoration);
     }
 }
