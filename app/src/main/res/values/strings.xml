@@ -116,4 +116,6 @@
     <string name="rs_200">Rs.200</string>
     <string name="the_book_written">The Book Written</string>
     <string name="buy_now">Buy Now</string>
+
+    <string name="notification">This is the notification</string>
 </resources>

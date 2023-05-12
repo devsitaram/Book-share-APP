@@ -44,7 +44,12 @@ public class ProfileFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return pView = inflater.inflate(R.layout.fragment_profile, container, false);
+        pView = inflater.inflate(R.layout.fragment_profile, container, false);
+//        TextView tvUserProfileName = pView.findViewById(R.id.tvUserProfileName);
+//
+//
+//        tvUserProfileName.setText("Jon");
+        return pView;
     }
 
     @Override
@@ -66,31 +71,9 @@ public class ProfileFragment extends Fragment {
         });
 
         btnGoSetting.setOnClickListener(v -> navigateSetting());
-//        imageCapture.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                takeProfilePicture(); // caa this methods
-//            }
-//        });
-
-
-//        imageCaptureLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
-//            if (result.getResultCode() == Activity.RESULT_OK) {
-//                // Handle the result here
-//                Intent data = result.getData();
-//                assert data != null;
-//                Bitmap bitmap = (Bitmap) (data.getExtras().get("data"));
-//                imageCapture.setImageBitmap(bitmap);
-//            }
-//        });
 
         imageCapture.setOnClickListener(v -> takePictureFromGallery());
     }
-
-//    public void takeProfilePicture(){
-//        Intent intentCamera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-//        startActivityForResult(intentCamera,0);
-//    }
 
     public void takePictureFromGallery() {
         Intent intent = new Intent();

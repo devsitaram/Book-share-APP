@@ -4,8 +4,7 @@ public class Books {
     int images;
     String title;
 
-    public Books(int images, String title) {
+    public Books(int images) {
         this.images = images;
-        this.title = title;
     }
 }

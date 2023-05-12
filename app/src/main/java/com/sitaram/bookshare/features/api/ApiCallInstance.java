@@ -11,8 +11,8 @@ public class ApiCallInstance {
 //    private static final String BASE_URL = "https://book4.p.rapidapi.com/";
 
 //    private static final String BASE_URL = "http://100.64.235.184/sitaram/";
-//    private static final String BASE_URL = "http://100.64.242.2/sitaram/";
-    private static final String BASE_URL = "http://192.168.1.80/sitaram/";
+//    private static final String BASE_URL = "http://172.16.1.173/sitaram/"; // skill
+    private static final String BASE_URL = "http://192.168.1.80/sitaram/"; // hostel
 
     public static Retrofit getRetrofitInstance() {
         if (retrofit == null) {

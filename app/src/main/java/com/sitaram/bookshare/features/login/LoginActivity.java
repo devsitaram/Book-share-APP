@@ -1,6 +1,4 @@
 package com.sitaram.bookshare.features.login;
-
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,11 +8,11 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.bookshare.R;
-import com.google.android.material.textfield.TextInputEditText;
 import com.sitaram.bookshare.MainActivity;
+import com.example.bookshare.R;
 import com.sitaram.bookshare.features.database.DatabaseHelper;
 import com.sitaram.bookshare.features.database.User;
+import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +36,6 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     LoginPresenter loginPresenter;
      TextInputEditText editSignUpEmail, editSignUpUsername, editSignUpPassword, editLoginUsername, editLoginPassword;
      String userEmail, userName, userPassword;
-    @SuppressLint({"MissingInflatedId", "CheckResult"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,21 +92,9 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         btnLogin.setOnClickListener(v -> getLogin());
     }
 
-    public void getLogin(){
-        userName = Objects.requireNonNull(editLoginUsername.getText()).toString().trim();
-        userPassword = Objects.requireNonNull(editLoginPassword.getText()).toString().trim();
-        // check the username and password
-        if(databaseHelper.userDao().loginDetails(userName, userPassword)){
-            startActivity(new Intent(LoginActivity.this, MainActivity.class));
-        } else {
-            showErrorMessage("invalid username and password.");
-        }
-    }
-
     // login layout visibility
-    @SuppressLint("UseCompatLoadingForDrawables")
     public void loginFieldsVisible() {
-        btnShowSignUpPage.setTextColor(getResources().getColor(R.color.redColor, null));
+        btnShowSignUpPage.setTextColor(getResources().getColor(R.color.textOrange, null));
         btnShowLogInPage.setBackground(getResources().getDrawable(R.drawable.switch_tricks, null));
         btnShowSignUpPage.setBackground(null);
         signUpLayout.setVisibility(View.GONE);
@@ -118,14 +103,13 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     }
 
     // signup layout visibility
-    @SuppressLint("UseCompatLoadingForDrawables")
     public void signUpFieldsVisible() {
         btnShowSignUpPage.setBackground(getResources().getDrawable(R.drawable.switch_tricks, null));
         btnShowSignUpPage.setTextColor(getResources().getColor(R.color.textColor, null));
         btnShowLogInPage.setBackground(null);
         logInLayout.setVisibility(View.GONE);
         signUpLayout.setVisibility(View.VISIBLE);
-        btnShowLogInPage.setTextColor(getResources().getColor(R.color.redColor, null));
+        btnShowLogInPage.setTextColor(getResources().getColor(R.color.textOrange, null));
     }
 
     @Override
@@ -142,7 +126,6 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     @Override
     public boolean emailValidation() {
         // get text fields text
-        // pattern \\d is 0-9
         String emailPattern = "[a-zA-Z\\d._-]+@[a-z]+.+[a-z]+";
         // check the email validation
         if (userEmail.isEmpty()) {
@@ -221,6 +204,17 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     public void registerUser(String email, String username, String password) {
         userDataList = new ArrayList<>();
         userDataList.add(new User(email, username, password));
+    }
+
+    public void getLogin(){
+        userName = Objects.requireNonNull(editLoginUsername.getText()).toString().trim();
+        userPassword = Objects.requireNonNull(editLoginPassword.getText()).toString().trim();
+        // check the username and password
+        if(databaseHelper.userDao().loginDetails(userName, userPassword)){
+            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+        } else {
+            showErrorMessage("invalid username and password.");
+        }
     }
 
     // navigate login to home page

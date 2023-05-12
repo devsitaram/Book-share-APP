@@ -16,7 +16,6 @@ public interface LoginContract {
 
     // presenter interface class
     interface Presenter {
-        void onCreate();
         boolean registerButtonClick(String email, String name, String password);
         boolean loginButtonClick(String username, String password);
     }

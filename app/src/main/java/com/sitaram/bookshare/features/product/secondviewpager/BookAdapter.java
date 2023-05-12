@@ -48,21 +48,6 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
         Glide.with(holder.itemView.getContext()).load(book.getUrl()).into(holder.ivImage);
     }
 
-//    @SuppressLint("SetTextI18n")
-//    @Override
-//    public void onBindViewHolder(@NonNull ProductAdapter.ViewHolder holder, int position) {
-//        BooksItem book = bookPojoList.get(position);
-//        holder.tvAuther.setText("Author: " + book.getAuthor());
-//        holder.tvId.setText("Book Id: " + book.getId());
-//        holder.tvPrices.setText("Price: " + book.getPrice() + "");
-//        holder.tvRating.setText("Rating: " + book.getRating() + "");
-//        holder.tvDate.setText("Date: " + book.getDate());
-//        holder.tvTitle.setText("Title: " + book.getTitle());
-//        holder.tvDetail.setText("Details: " + book.getDetail());
-//        // or whatever you want
-//        Glide.with(holder.itemView.getContext()).load(book.getUrl()).into(holder.ivImage);
-//    }
-
     @Override
     public int getItemCount() {
         return bookPojoList.size();

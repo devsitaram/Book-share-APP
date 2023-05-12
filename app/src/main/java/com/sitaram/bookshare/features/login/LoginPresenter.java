@@ -19,8 +19,6 @@ public class LoginPresenter implements LoginContract.Presenter{
         this.context = context;
     }
 
-    public void onCreate(){}
-
     @Override
     public boolean registerButtonClick(@NonNull String email, String username, String password) {
         if (email.isEmpty() && username.isEmpty() && password.isEmpty()){

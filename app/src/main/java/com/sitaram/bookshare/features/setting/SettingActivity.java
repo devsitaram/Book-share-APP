@@ -14,8 +14,6 @@ import android.widget.Toast;
 
 import com.example.bookshare.R;
 import com.sitaram.bookshare.MainActivity;
-import com.sitaram.bookshare.features.home.Books;
-import com.sitaram.bookshare.features.home.HomeAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

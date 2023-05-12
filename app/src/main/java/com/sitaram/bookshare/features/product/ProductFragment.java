@@ -18,10 +18,10 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.bookshare.R;
+import com.sitaram.bookshare.features.product.helper.BookPojo;
 import com.google.android.material.tabs.TabLayout;
 import com.sitaram.bookshare.features.home.HomeFragment;
 import com.sitaram.bookshare.features.product.firstviewpager.ForYouBookFragment;
-import com.sitaram.bookshare.features.product.helper.BookPojo;
 import com.sitaram.bookshare.features.product.secondviewpager.TrendingBookFragment;
 
 public class ProductFragment extends Fragment implements ProductContract.View {

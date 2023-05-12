@@ -13,9 +13,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bookshare.R;
-import com.sitaram.bookshare.features.product.ProductContract;
 import com.sitaram.bookshare.features.product.ProductPresenter;
 import com.sitaram.bookshare.features.product.helper.BookPojo;
+import com.sitaram.bookshare.features.product.ProductContract;
 
 public class TrendingBookFragment extends Fragment implements ProductContract.View {
 

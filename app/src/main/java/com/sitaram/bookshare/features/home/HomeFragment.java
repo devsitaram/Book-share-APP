@@ -22,12 +22,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bookshare.R;
+import com.sitaram.bookshare.features.product.ProductFragment;
+import com.sitaram.bookshare.features.profile.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.sitaram.bookshare.features.about.AboutFragment;
 import com.sitaram.bookshare.features.contact.ContactFragment;
 import com.sitaram.bookshare.features.menu.MenuActivity;
-import com.sitaram.bookshare.features.product.ProductFragment;
-import com.sitaram.bookshare.features.profile.ProfileFragment;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -164,10 +164,10 @@ public class HomeFragment extends Fragment implements HomeContract.View {
         hRecyclerView = hView.findViewById(R.id.rvHomeBookItem);
 
         arrBooksList = new ArrayList<>();
-        arrBooksList.add(new Books(R.mipmap.book_app_logo, "Hello"));
-        arrBooksList.add(new Books(R.mipmap.book_app_logo, "Hello"));
-        arrBooksList.add(new Books(R.mipmap.book_app_logo, "Hello"));
-        arrBooksList.add(new Books(R.mipmap.book_app_logo, "Hello"));
+        arrBooksList.add(new Books(R.mipmap.book_app_logo));
+        arrBooksList.add(new Books(R.mipmap.img_book_home1));
+//        arrBooksList.add(new Books(R.mipmap.img_book_home1));
+//        arrBooksList.add(new Books(R.mipmap.img_book_home1));
 
         // create an object of homeAdapter class and also set the hRecyclerView
         HomeAdapter homeAdapter = new HomeAdapter(getActivity(), arrBooksList);

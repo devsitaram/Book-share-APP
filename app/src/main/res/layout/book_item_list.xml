@@ -126,10 +126,11 @@
                         android:id="@+id/tvBookPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/redColor"
-                        android:textStyle="bold"
+                        android:text="@string/rs_200"
+                        android:textColor="@color/textOrange"
                         android:textSize="20sp"
-                        android:text="@string/rs_200"/>
+                        android:textStyle="bold"
+                        tools:ignore="TextContrastCheck" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -156,13 +157,13 @@
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/redColor"
-                        android:textColor="@color/white"
-                        android:textAllCaps="false"
-                        android:text="@string/buy_now"
-                        android:textSize="20sp"
                         android:layout_margin="20dp"
-                        tools:ignore="VisualLintButtonSize">
+                        android:background="@color/textOrange"
+                        android:text="@string/buy_now"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        tools:ignore="VisualLintButtonSize,TextContrastCheck">
 
                     </Button>
 

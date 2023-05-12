@@ -5,15 +5,14 @@ import android.app.SearchManager;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.bookshare.R;
 import com.google.android.material.textfield.TextInputEditText;
@@ -84,7 +83,7 @@ public class ContactFragment extends Fragment {
     // email layout visible
     @SuppressLint("UseCompatLoadingForDrawables")
     public void emailLayoutVisible() {
-        btnShowContactLayout.setTextColor(getResources().getColor(R.color.redColor, null));
+        btnShowContactLayout.setTextColor(getResources().getColor(R.color.textOrange, null));
         btnShowEmailLayout.setBackground(getResources().getDrawable(R.drawable.switch_tricks, null));
         btnShowContactLayout.setBackground(null);
         contactPhoneLayout.setVisibility(View.GONE);
@@ -100,7 +99,7 @@ public class ContactFragment extends Fragment {
         btnShowEmailLayout.setBackground(null);
         contactEmailLayout.setVisibility(View.GONE);
         contactPhoneLayout.setVisibility(View.VISIBLE);
-        btnShowEmailLayout.setTextColor(getResources().getColor(R.color.redColor, null));
+        btnShowEmailLayout.setTextColor(getResources().getColor(R.color.textOrange, null));
     }
 
     // email message send

@@ -16,6 +16,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".AnimationActivity"
+            android:exported="false" />
+        <activity
             android:name="com.sitaram.bookshare.features.setting.SettingActivity"
             android:exported="false" />
         <activity
@@ -26,18 +29,22 @@
             android:exported="false" />
         <activity
             android:name="com.sitaram.bookshare.features.login.LoginActivity"
-            android:exported="false" />
+            android:exported="false" >
+        </activity>
         <activity
             android:name="com.sitaram.bookshare.MainActivity"
-            android:exported="true" />
+            android:exported="false" />
+
         <activity
             android:name="com.sitaram.bookshare.features.slider.SplashScreenActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <service
             android:name=".MyFirebaseInstanceIDService"
             android:exported="true"

@@ -9,7 +9,7 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="textColor">#ECE5EC</color>
-    <color name="redColor">#FF1100</color>
+    <color name="redColor">#F72314</color>
     <color name="tansparentColor">#00CCC5C5</color>
     <color name="nullColor">#00FFFFFF</color>
 
@@ -18,7 +18,5 @@
 
     <color name="textOrange">#EC981C</color>
     <color name="btnTextPink">#E6A256FF</color>
-
-
 
 </resources>

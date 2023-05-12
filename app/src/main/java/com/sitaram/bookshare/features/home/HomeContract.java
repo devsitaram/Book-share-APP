@@ -1,9 +1,5 @@
 package com.sitaram.bookshare.features.home;
 
-import android.content.Intent;
-
-import com.sitaram.bookshare.features.product.helper.BookPojo;
-
 public interface HomeContract {
     interface View {
         void successMessage(String success);

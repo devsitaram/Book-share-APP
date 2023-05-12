@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -33,7 +32,6 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.hViewHolder> {
     public void onBindViewHolder(@NonNull HomeAdapter.hViewHolder holder, int position) {
         Books book = booksList.get(position);
         holder.ivBookImage.setImageResource(book.images);
-        holder.tvBookTitle.setText(book.title);
     }
 
     @Override
@@ -43,11 +41,9 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.hViewHolder> {
 
     public static class hViewHolder extends RecyclerView.ViewHolder {
         ImageView ivBookImage;
-        TextView tvBookTitle;
         public hViewHolder(@NonNull View itemView) {
             super(itemView);
             ivBookImage = itemView.findViewById(R.id.ivBookItem);
-            tvBookTitle = itemView.findViewById(R.id.tvBookTitle);
         }
     }
 }
