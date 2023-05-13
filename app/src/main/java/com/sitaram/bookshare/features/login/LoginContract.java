@@ -7,9 +7,11 @@ public interface LoginContract {
         void loginSuccessMessage(String successMessage);
         void showErrorMessage(String errorMessage);
         void navigateHomePage();
-        boolean emailValidation();
-        boolean usernameValidation();
-        boolean passwordValidation();
+
+        // email validation
+        boolean emailValidation(String email);
+        boolean usernameValidation(String name);
+        boolean passwordValidation(String password);
 //        boolean registerUser(List<User> userList);
         void registerUser(String email, String username, String password);
     }

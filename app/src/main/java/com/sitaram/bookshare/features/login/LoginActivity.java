@@ -1,4 +1,5 @@
 package com.sitaram.bookshare.features.login;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -8,11 +9,11 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.sitaram.bookshare.MainActivity;
 import com.example.bookshare.R;
+import com.google.android.material.textfield.TextInputEditText;
+import com.sitaram.bookshare.MainActivity;
 import com.sitaram.bookshare.features.database.DatabaseHelper;
 import com.sitaram.bookshare.features.database.User;
-import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -123,15 +124,15 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     }
 
     // email validation
-    @Override
-    public boolean emailValidation() {
+//    @Override
+    public boolean emailValidation(String email) {
         // get text fields text
         String emailPattern = "[a-zA-Z\\d._-]+@[a-z]+.+[a-z]+";
         // check the email validation
-        if (userEmail.isEmpty()) {
+        if (email.isEmpty()) {
             editSignUpEmail.setError("Email cannot be empty");
             return false;
-        } else if (!userEmail.matches(emailPattern)) {
+        } else if (!email.matches(emailPattern)) {
             editSignUpEmail.setError("Invalid email address");
             return false;
         } else {
@@ -142,13 +143,13 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
 
     // username validation
     @Override
-    public boolean usernameValidation() {
+    public boolean usernameValidation(@NonNull String name) {
         String usernamePattern = "[a-zA-z]+\\s+[a-zA-z]+";
         // username
-        if (userName.isEmpty()) {
+        if (name.isEmpty()) {
             editSignUpUsername.setError("Username cannot be empty");
             return false;
-        } else if (!userName.matches(usernamePattern)) {
+        } else if (!name.matches(usernamePattern)) {
             editSignUpUsername.setError("Enter your name");
             return false;
         } else {
@@ -172,8 +173,8 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
      * // String passwordPattern = "(?=.*[a-zA-Z][@#$%^&+=])";
      */
     @Override
-    public boolean passwordValidation(){
-        if (userPassword.isEmpty()) {
+    public boolean passwordValidation(@NonNull String password){
+        if (password.isEmpty()) {
             editSignUpPassword.setError("Username cannot be empty");
             return false;
         } else {

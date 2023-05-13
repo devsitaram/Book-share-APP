@@ -25,10 +25,7 @@ public class LoginPresenter implements LoginContract.Presenter{
             view.showErrorMessage("The fields is empty!"); // unsuccessful message
             return false;
         } else {
-            boolean validEmail = view.emailValidation();
-            boolean validName = view.usernameValidation();
-            boolean validPassword = view.passwordValidation();
-            if (validEmail && validName && validPassword) {
+            if (view.emailValidation(email) && view.usernameValidation(username) && view.passwordValidation(password)) {
                 // call teh registerUserUser method
                 view.registerUser(email, username, password);
                 return true;
