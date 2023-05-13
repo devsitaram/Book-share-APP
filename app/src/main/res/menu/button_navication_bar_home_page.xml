@@ -1,30 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
         android:id="@+id/navBtnHome"
-        android:icon="@drawable/home_navication_icon"
+        android:icon="@drawable/home_navigation_icon"
         android:title="@string/home" />
 
     <item
         android:id="@+id/navBtnProfile"
-        android:icon="@drawable/profile_navication_icon"
+        android:icon="@drawable/profile_navigation_icon"
         android:title="@string/profile"/>
 
     <item
         android:id="@+id/navBtnProduct"
-        android:icon="@drawable/product_navication_icon"
+        android:icon="@drawable/product_navigation_icon"
         android:title="@string/product"/>
 
     <item
         android:id="@+id/navBtnContact"
-        android:icon="@drawable/contact_navication_icon"
+        android:icon="@drawable/contact_navigation_icon"
         android:title="@string/contact"/>
 
     <item
         android:id="@+id/navBtnAbout"
-        android:icon="@drawable/search_icon"
+        android:icon="@drawable/about_navigation_icon"
         android:title="@string/about"/>
 
 </menu>

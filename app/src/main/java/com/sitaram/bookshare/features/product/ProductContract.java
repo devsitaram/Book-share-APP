@@ -13,7 +13,6 @@ public interface ProductContract {
 
         void setBooks(BookPojo body);
 
-//        void setSearchBook(List<BookPojo> body);
     }
 
     interface Presenter {

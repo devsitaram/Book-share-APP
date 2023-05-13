@@ -1,6 +1,8 @@
 package com.sitaram.bookshare.features.slider;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -12,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.bookshare.R;
+import com.sitaram.bookshare.features.firebase.FirebaseInstanceNotificationService;
 import com.sitaram.bookshare.features.login.LoginActivity;
 
 public class SliderActivity extends AppCompatActivity {
@@ -39,10 +42,12 @@ public class SliderActivity extends AppCompatActivity {
         if (hasViewedSlider) {
             startActivity(new Intent(SliderActivity.this, LoginActivity.class));
             finish();
+
         } else {
             // Show the slider screen
             // skip button
             btnSkip.setOnClickListener(v -> {
+                setNotificationMessage();
                 startActivity(new Intent(SliderActivity.this, LoginActivity.class));
                 finish();
             });
@@ -59,6 +64,8 @@ public class SliderActivity extends AppCompatActivity {
                 if (getItem(0)<2){
                     mSliderViewPager.setCurrentItem(getItem(1), true);
                 } else {
+
+                    setNotificationMessage();
                     startActivity(new Intent(SliderActivity.this, LoginActivity.class));
                     finish();
                 }
@@ -126,5 +133,23 @@ public class SliderActivity extends AppCompatActivity {
 
     private  int getItem(int item){
         return mSliderViewPager.getCurrentItem()+item;
+    }
+
+    private void setNotificationMessage() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Book Share");
+        builder.setMessage("Notification's permission!");
+        // press the yes the logout the app
+        builder.setPositiveButton("ON", (dialog, i) -> {
+            FirebaseInstanceNotificationService notificationService = new FirebaseInstanceNotificationService();
+            notificationService.notification();
+//            return true;
+        });
+        // press the No then cancel to logout the app
+        builder.setNegativeButton("OFF", (DialogInterface dialogInterface, int i) -> {
+            dialogInterface.dismiss();
+//            return false;
+        });
+        builder.show();
     }
 }

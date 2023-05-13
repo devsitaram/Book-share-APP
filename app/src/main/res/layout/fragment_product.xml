@@ -35,8 +35,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginStart="10dp"
-                android:text="@string/contact"
-                android:textAllCaps="true"
+                android:text="@string/product"
+                android:textAllCaps="false"
                 android:textColor="#F3EFEF"
                 android:textSize="20sp" />
 

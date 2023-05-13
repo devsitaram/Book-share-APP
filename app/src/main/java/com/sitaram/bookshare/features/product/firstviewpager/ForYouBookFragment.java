@@ -75,7 +75,8 @@ public class ForYouBookFragment extends Fragment implements ProductContract.View
         thisAdapter.notifyDataSetChanged();
 
         // add divider
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(pRecyclerView.getContext(),linearLayoutManager.getOrientation());
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(pRecyclerView.getContext(),
+                linearLayoutManager.getOrientation());
         pRecyclerView.addItemDecoration(dividerItemDecoration);
     }
 }

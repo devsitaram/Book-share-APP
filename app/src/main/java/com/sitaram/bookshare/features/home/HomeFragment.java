@@ -128,7 +128,6 @@ public class HomeFragment extends Fragment implements HomeContract.View {
                 case R.id.navBtnAbout:
                     // go to the about fragment class
                     fragmentTransaction.replace(R.id.flMainContener, aboutFragment).addToBackStack(null).commit();
-//                    fragmentTransaction.addToBackStack(null).commit();
                     return true;
                 default:
                     return false;
@@ -137,8 +136,10 @@ public class HomeFragment extends Fragment implements HomeContract.View {
     }
 
     // navigateMenu
+    @SuppressLint("UseRequireInsteadOfGet")
     public void navigateMenu() {
         startActivity(new Intent(getActivity(), MenuActivity.class));
+        Objects.requireNonNull(getActivity()).finish();
     }
 
     // text fields setFocusable control
@@ -164,10 +165,10 @@ public class HomeFragment extends Fragment implements HomeContract.View {
         hRecyclerView = hView.findViewById(R.id.rvHomeBookItem);
 
         arrBooksList = new ArrayList<>();
-        arrBooksList.add(new Books(R.mipmap.book_app_logo));
+        arrBooksList.add(new Books(R.mipmap.img_book_home2));
         arrBooksList.add(new Books(R.mipmap.img_book_home1));
-//        arrBooksList.add(new Books(R.mipmap.img_book_home1));
-//        arrBooksList.add(new Books(R.mipmap.img_book_home1));
+        arrBooksList.add(new Books(R.mipmap.img_slider_second));
+        arrBooksList.add(new Books(R.mipmap.img_slider_third));
 
         // create an object of homeAdapter class and also set the hRecyclerView
         HomeAdapter homeAdapter = new HomeAdapter(getActivity(), arrBooksList);

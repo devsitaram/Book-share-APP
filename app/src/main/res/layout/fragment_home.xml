@@ -146,7 +146,7 @@
                         android:text="Recommended for you"
                         android:textSize="20sp"
                         android:textStyle="bold"
-                        tools:ignore="TextContrastCheck" />
+                        tools:ignore="HardcodedText,TextContrastCheck" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -155,73 +155,60 @@
                         android:layout_marginTop="5dp"
                         android:text="See all"
                         android:textColor="#FF9800"
-                        android:textSize="20sp" />
+                        android:textSize="20sp"
+                        tools:ignore="HardcodedText,TextContrastCheck" />
 
                     <Button
                         android:layout_width="40dp"
                         android:layout_height="30dp"
                         android:layout_marginTop="5dp"
                         android:background="@drawable/ic_book_show_arrow"
-                        android:text="" />
+                        android:text=""
+                        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
                 </LinearLayout>
-
-<!--                <ImageView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:src="@mipmap/img_book_home"-->
-<!--                    />-->
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvHomeBookItem"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="200dp"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="20dp"
-                    android:layout_marginBottom="15dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#097FFF"
-                android:orientation="horizontal"
-                android:paddingBottom="50dp">
-
-                <LinearLayout
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="25dp">
-
-                    <TextView
-                        android:layout_width="200dp"
-                        android:layout_height="wrap_content"
-                        android:text="@string/use_bookstore_and_get_discount"
-                        android:textColor="#F1F1F1"
-                        android:textSize="20sp"
-                        tools:ignore="TextSizeCheck" />
-
-                </LinearLayout>
+                    android:layout_marginBottom="15dp"
+                    tools:ignore="TextSizeCheck" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center">
+                    android:background="@color/textOrange"
+                    android:padding="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/use_bookstore_and_get_discount"
+                        android:textColor="#F1F1F1"
+                        tools:ignore="TextSizeCheck,TextContrastCheck" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
                         android:text="@string/_50"
                         android:textAlignment="center"
                         android:textColor="#FFFFFF"
-                        android:textSize="50sp"
-                        android:textStyle="bold" />
+                        android:textSize="40sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="-5dp"
+                        tools:ignore="TextContrastCheck" />
                 </LinearLayout>
             </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 

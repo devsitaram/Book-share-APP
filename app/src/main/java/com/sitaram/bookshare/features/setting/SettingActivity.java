@@ -1,19 +1,22 @@
 package com.sitaram.bookshare.features.setting;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.Switch;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bookshare.R;
 import com.sitaram.bookshare.MainActivity;
+import com.sitaram.bookshare.features.firebase.FirebaseInstanceNotificationService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +26,9 @@ public class SettingActivity extends AppCompatActivity {
     RecyclerView sRecyclerView;
     List<SettingPojo> settingPojoList;
     Button btnBackToHome, btnLogout;
-
+    @SuppressLint("UseSwitchCompatOrMaterialCode")
+    Switch switchNotification;
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,10 +37,24 @@ public class SettingActivity extends AppCompatActivity {
         setSettingRecyclerView();
         btnBackToHome = findViewById(R.id.btnSettingToHome);
         btnLogout = findViewById(R.id.btnLogout);
+        switchNotification = findViewById(R.id.switchNotification);
 
         // setOnClickListener methods in btnBackToHome button
         btnBackToHome.setOnClickListener(v -> navigateHomePage());
         btnLogout.setOnClickListener(v -> setLogoutAlertDialog());
+
+
+        switchNotification.setOnClickListener(v -> {
+            if (switchNotification.isChecked()) {
+                FirebaseInstanceNotificationService notificationService = new FirebaseInstanceNotificationService();
+                notificationService.notification();
+                switchNotification.setText("Notification ON");
+                // do something when the switch is checked
+            } else {
+                // do something when the switch is unchecked
+                switchNotification.setText("Notification OFF");
+            }
+        });
     }
 
     // navigate setting to home page

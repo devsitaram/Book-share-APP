@@ -16,6 +16,7 @@ public class FirebaseInstanceNotificationService extends FirebaseMessagingServic
     public void onNewToken(@NonNull String token) {
         super.onNewToken(token);
         // save toke to preference util
+        notification();
 
     }
 

@@ -81,7 +81,7 @@
                         android:text="@string/receive_notification"
                         android:textColor="@color/inactive"
                         android:textSize="20sp"
-                        tools:ignore="UseSwitchCompatOrMaterialXml,TouchTargetSizeCheck,VisualLintButtonSize" />
+                        tools:ignore="UseSwitchCompatOrMaterialXml" />
 
                     <Switch
                         android:id="@+id/switchNewLatter"

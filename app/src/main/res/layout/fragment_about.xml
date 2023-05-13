@@ -25,12 +25,12 @@
                 android:orientation="vertical"
                 android:background="@mipmap/img_about_page_background"
                 android:layout_width="match_parent"
-                android:layout_height="230dp"
+                android:layout_height="250dp"
                 android:layout_gravity="center">
 
                 <Button
                     android:id="@+id/btnAboutToHome"
-                    android:layout_width="55dp"
+                    android:layout_width="50dp"
                     android:layout_height="35dp"
                     android:layout_margin="10dp"
                     android:background="@drawable/arrow_back_sharp_icon"
@@ -41,7 +41,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:textAlignment="center"
-                    android:textColor="#FF5722"
+                    android:textColor="@color/textOrange"
                     android:layout_marginTop="120dp"
                     android:textSize="25sp"
                     android:textStyle="bold"

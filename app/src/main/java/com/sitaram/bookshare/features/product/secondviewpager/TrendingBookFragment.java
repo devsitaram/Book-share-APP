@@ -28,8 +28,7 @@ public class TrendingBookFragment extends Fragment implements ProductContract.Vi
     }
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return bookView = inflater.inflate(R.layout.fragment_book_trending, container, false);
     }
@@ -72,8 +71,5 @@ public class TrendingBookFragment extends Fragment implements ProductContract.Vi
         bRecyclerView.setLayoutManager(linearLayoutManager);
         bookAdapter.notifyDataSetChanged();
 
-        // add divider
-//        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(bRecyclerView.getContext(),linearLayoutManager.getOrientation());
-//        bRecyclerView.addItemDecoration(dividerItemDecoration);
     }
 }
