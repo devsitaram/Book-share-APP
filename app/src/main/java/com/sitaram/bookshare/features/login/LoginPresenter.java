@@ -35,32 +35,13 @@ public class LoginPresenter implements LoginContract.Presenter{
         }
     }
 
-    // insert new data
-//    public void registerUserDetails(String email, String username, String password){
-//            view.loginSuccessMessage("Register successful.");
-//            view.registerUser(email, username, password);
-//    }
-//    public void registerUsers(List<User> userList){
-//        loginModel = new LoginModel(context);
-//        userList = new ArrayList<>();
-//        userList.add(new User(email, username, password));
-//        boolean isSuccess = loginModel.setRegister(userList);
-//        if (isSuccess){
-//            view.loginSuccessMessage("Register successful.");
-//            view.registerUser(email, username, password);
-//        } else {
-//            view.showErrorMessage("The field is empty!");
-//        }
-//    }
-
-    public boolean loginButtonClick(@NonNull String username, String password) {
+    @Override
+    public void loginButtonClick(String username, String password) {
         if (username.isEmpty() || password.isEmpty()) {
             // call the callLoginAPI methods
             view.showErrorMessage("The field is empty!");
-            return false;
         } else {
             callLoginDatabase(username, password);
-            return true;
         }
     }
 
@@ -74,12 +55,4 @@ public class LoginPresenter implements LoginContract.Presenter{
 //            view.showErrorMessage("Username and password is not registered.");
 //        }
     }
-
-//    public Completable insertUser(@NonNull DatabaseHelper databases, String email, String username, String password) {
-//        ArrayList<User> userPojoList = new ArrayList<>();
-//        Log.d("User Login Data: ", databases+"Email: "+email+"Username: "+username+"Password: "+password);
-//        userPojoList.add(new User(email, username, password)); // add the data in the list
-//        return databases.loginDao().insertUser(userPojoList);
-//    }
-
 }

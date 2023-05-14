@@ -1,5 +1,6 @@
 package com.sitaram.bookshare.features.login;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -94,6 +95,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     }
 
     // login layout visibility
+    @SuppressLint("UseCompatLoadingForDrawables")
     public void loginFieldsVisible() {
         btnShowSignUpPage.setTextColor(getResources().getColor(R.color.textOrange, null));
         btnShowLogInPage.setBackground(getResources().getDrawable(R.drawable.switch_tricks, null));
@@ -104,6 +106,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     }
 
     // signup layout visibility
+    @SuppressLint("UseCompatLoadingForDrawables")
     public void signUpFieldsVisible() {
         btnShowSignUpPage.setBackground(getResources().getDrawable(R.drawable.switch_tricks, null));
         btnShowSignUpPage.setTextColor(getResources().getColor(R.color.textColor, null));

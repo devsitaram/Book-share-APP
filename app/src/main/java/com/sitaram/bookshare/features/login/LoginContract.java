@@ -12,14 +12,13 @@ public interface LoginContract {
         boolean emailValidation(String email);
         boolean usernameValidation(String name);
         boolean passwordValidation(String password);
-//        boolean registerUser(List<User> userList);
         void registerUser(String email, String username, String password);
     }
 
     // presenter interface class
     interface Presenter {
         boolean registerButtonClick(String email, String name, String password);
-        boolean loginButtonClick(String username, String password);
+        void loginButtonClick(String username, String password);
     }
 
     // model interface class

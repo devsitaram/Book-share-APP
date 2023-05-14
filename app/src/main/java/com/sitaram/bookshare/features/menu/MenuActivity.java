@@ -34,13 +34,17 @@ public class MenuActivity extends AppCompatActivity {
                 case R.id.navGallery:
                     return true;
                 case R.id.navOutBox:
+                    return true;
                 case R.id.navSlideshow:
+                    return true;
                 case R.id.navFeedback:
+                    return true;
                 case R.id.navSetting:
                     startActivity(new Intent(MenuActivity.this, SettingActivity.class));
                     finish();
                     return true;
                 case R.id.navHelp:
+                    return true;
                 default:
                     return false;
             }
