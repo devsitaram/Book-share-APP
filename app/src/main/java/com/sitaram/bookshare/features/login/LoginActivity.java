@@ -36,14 +36,15 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     Button btnLogin, btnSignUp, btnCheckBok, btnShowLogInPage, btnShowSignUpPage, btnGmail, btnFacebook, btnTwitter;
     View signUpLayout, logInLayout;
     LoginPresenter loginPresenter;
-     TextInputEditText editSignUpEmail, editSignUpUsername, editSignUpPassword, editLoginUsername, editLoginPassword;
-     String userEmail, userName, userPassword;
+    TextInputEditText editSignUpEmail, editSignUpUsername, editSignUpPassword, editLoginUsername, editLoginPassword;
+    String userEmail, userName, userPassword;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         databaseHelper = DatabaseHelper.getInstance(this); // create an instance of database helper class
-        loginPresenter = new LoginPresenter(this,this);
+        loginPresenter = new LoginPresenter(this, this);
 
         // initialize the signup input textFiled
         editSignUpEmail = findViewById(R.id.inputSignUpEmail);
@@ -72,63 +73,38 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         btnShowSignUpPage.setOnClickListener(v -> signUpFieldsVisible());
 
         // signup button
-        btnSignUp.setOnClickListener(v -> Objects.requireNonNull(insertUserData()).subscribeOn(Schedulers.io())
-                .subscribe(new CompletableObserver() {
-                    @Override
-                    public void onSubscribe(@NonNull Disposable disposable) {
-                        compositeDisposable.add(disposable);
-                    }
+        btnSignUp.setOnClickListener(v -> {
+            try {
+                Objects.requireNonNull(insertUserData())
+                    .subscribeOn(Schedulers.io())
+                    .subscribe(new CompletableObserver() {
+                        @Override
+                        public void onSubscribe(@NonNull Disposable disposable) {
+                            compositeDisposable.add(disposable);
+                        }
 
-                    @Override
-                    public void onComplete() {
-                        // recycler view
-                    }
+                        @Override
+                        public void onComplete() {
+                            // recycler view
+                        }
 
-                    @Override
-                    public void onError(@NonNull Throwable e) {
+                        @Override
+                        public void onError(@NonNull Throwable e) {
 
-                    }
-                }));
+                        }
+                    });
+            } catch (NullPointerException exception) {
+                showErrorMessage(String.valueOf(exception));
+            }
+        });
 
         // login button
         btnLogin.setOnClickListener(v -> getLogin());
     }
 
-    // login layout visibility
-    @SuppressLint("UseCompatLoadingForDrawables")
-    public void loginFieldsVisible() {
-        btnShowSignUpPage.setTextColor(getResources().getColor(R.color.textOrange, null));
-        btnShowLogInPage.setBackground(getResources().getDrawable(R.drawable.switch_tricks, null));
-        btnShowSignUpPage.setBackground(null);
-        signUpLayout.setVisibility(View.GONE);
-        logInLayout.setVisibility(View.VISIBLE);
-        btnShowLogInPage.setTextColor(getResources().getColor(R.color.textColor, null));
-    }
-
-    // signup layout visibility
-    @SuppressLint("UseCompatLoadingForDrawables")
-    public void signUpFieldsVisible() {
-        btnShowSignUpPage.setBackground(getResources().getDrawable(R.drawable.switch_tricks, null));
-        btnShowSignUpPage.setTextColor(getResources().getColor(R.color.textColor, null));
-        btnShowLogInPage.setBackground(null);
-        logInLayout.setVisibility(View.GONE);
-        signUpLayout.setVisibility(View.VISIBLE);
-        btnShowLogInPage.setTextColor(getResources().getColor(R.color.textOrange, null));
-    }
-
-    @Override
-    public void loginSuccessMessage(String successMessage) {
-        Toast.makeText(this, successMessage, Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void showErrorMessage(String errorMessage) {
-        Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show();
-    }
-
     // email validation
-//    @Override
-    public boolean emailValidation(String email) {
+    @Override
+    public boolean emailValidation(@NonNull String email) {
         // get text fields text
         String emailPattern = "[a-zA-Z\\d._-]+@[a-z]+.+[a-z]+";
         // check the email validation
@@ -176,7 +152,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
      * // String passwordPattern = "(?=.*[a-zA-Z][@#$%^&+=])";
      */
     @Override
-    public boolean passwordValidation(@NonNull String password){
+    public boolean passwordValidation(@NonNull String password) {
         if (password.isEmpty()) {
             editSignUpPassword.setError("Username cannot be empty");
             return false;
@@ -194,12 +170,12 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         userPassword = Objects.requireNonNull(editSignUpPassword.getText()).toString().trim();
         // call the register button click method
         boolean isSuccessRegister = loginPresenter.registerButtonClick(userEmail, userName, userPassword);
-        if(isSuccessRegister) {
+        if (isSuccessRegister) {
             loginFieldsVisible(); // after register the to visible the login contener
             loginSuccessMessage("Successful");
             return databaseHelper.userDao().insertUser(userDataList); // return the user data
         } else {
-            showErrorMessage("Username and password is not match.");
+            showErrorMessage("Enter the valid details.");
             return null;
         }
     }
@@ -210,14 +186,28 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         userDataList.add(new User(email, username, password));
     }
 
-    public void getLogin(){
+    public void getLogin() {
         userName = Objects.requireNonNull(editLoginUsername.getText()).toString().trim();
         userPassword = Objects.requireNonNull(editLoginPassword.getText()).toString().trim();
         // check the username and password
-        if(databaseHelper.userDao().loginDetails(userName, userPassword)){
-            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+        boolean isValidLogin = loginPresenter.loginButtonClick(userName,userPassword);
+        if (isValidLogin){
+            navigateHomePage();
+            loginSuccessMessage("Login Successful.");
         } else {
-            showErrorMessage("invalid username and password.");
+            showErrorMessage("Invalid username and password.");
+        }
+    }
+
+    // user data check in the database;
+    @Override
+    public boolean login(String userName, String userPassword){
+        if (databaseHelper.userDao().loginDetails(userName, userPassword)) {
+            loginSuccessMessage("Login success");
+            return true;
+        } else {
+            showErrorMessage("Invalid username and password.");
+            return false;
         }
     }
 
@@ -228,21 +218,41 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         finish();
     }
 
+    // display the success message
+    @Override
+    public void loginSuccessMessage(String successMessage) {
+        Toast.makeText(this, successMessage, Toast.LENGTH_SHORT).show();
+    }
+
+    /// display the error message
+    @Override
+    public void showErrorMessage(String errorMessage) {
+        Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show();
+    }
+
+
+    // login layout visibility
+    @SuppressLint("UseCompatLoadingForDrawables")
+    public void loginFieldsVisible() {
+        btnShowSignUpPage.setTextColor(getResources().getColor(R.color.textOrange, null));
+        btnShowLogInPage.setBackground(getResources().getDrawable(R.drawable.switch_tricks, null));
+        btnShowSignUpPage.setBackground(null);
+        signUpLayout.setVisibility(View.GONE);
+        logInLayout.setVisibility(View.VISIBLE);
+        btnShowLogInPage.setTextColor(getResources().getColor(R.color.textColor, null));
+    }
+
+    // signup layout visibility
+    @SuppressLint("UseCompatLoadingForDrawables")
+    public void signUpFieldsVisible() {
+        btnShowSignUpPage.setBackground(getResources().getDrawable(R.drawable.switch_tricks, null));
+        btnShowSignUpPage.setTextColor(getResources().getColor(R.color.textColor, null));
+        btnShowLogInPage.setBackground(null);
+        logInLayout.setVisibility(View.GONE);
+        signUpLayout.setVisibility(View.VISIBLE);
+        btnShowLogInPage.setTextColor(getResources().getColor(R.color.textOrange, null));
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // login with another application

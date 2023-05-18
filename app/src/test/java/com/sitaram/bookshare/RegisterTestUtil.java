@@ -2,7 +2,7 @@ package com.sitaram.bookshare;
 
 import static org.junit.Assert.assertEquals;
 
-import com.sitaram.bookshare.testing.ConverterUtil;
+import com.sitaram.bookshare.converterutil.ConverterUtil;
 
 import org.junit.Test;
 

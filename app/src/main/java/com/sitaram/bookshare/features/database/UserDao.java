@@ -13,9 +13,11 @@ import io.reactivex.rxjava3.core.Completable;
 @Dao
 public interface UserDao {
 
+    // insert the user data
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     Completable insertUser(List<User> userList);
 
+    // this method can get the username and password
     @Query("SELECT EXISTS(SELECT * FROM user WHERE user_name =:nameName AND user_password =:userPassword)")
     boolean loginDetails(String nameName, String userPassword);
 }

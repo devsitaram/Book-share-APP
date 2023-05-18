@@ -9,7 +9,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@mipmap/img_contact_background"
+        android:background="@mipmap/img_contact_packground"
         tools:ignore="UselessParent">
 
         <LinearLayout
@@ -65,7 +65,7 @@
                     android:paddingBottom="5dp"
                     android:text="@string/email"
                     android:textAlignment="center"
-                    android:textColor="@color/textColor"
+                    android:textColor="#455A64"
                     android:textSize="15sp"
                     android:textStyle="bold|normal"
                     tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck,VisualLintButtonSize" />
@@ -108,8 +108,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
+                    app:hintTextColor="@color/white"
                     android:hint="@string/email"
-                    app:boxStrokeColor="#4E4A4A"
+                    app:boxStrokeColor="@color/white"
                     app:boxStrokeWidth="1dp"
                     app:shapeAppearanceOverlay="@style/ButtonTextFields">
 
@@ -120,7 +121,7 @@
                         android:ems="10"
                         android:inputType="textEmailAddress"
                         android:textAllCaps="false"
-                        android:textColor="@color/black"
+                        android:textColor="#F1F0F0"
                         android:textSize="20sp"
                         android:textStyle="normal"
                         tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
@@ -132,8 +133,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
+                    app:hintTextColor="@color/white"
                     android:hint="@string/subject"
-                    app:boxStrokeColor="#4E4A4A"
+                    app:boxStrokeColor="@color/white"
                     app:boxStrokeWidth="1dp"
                     app:shapeAppearanceOverlay="@style/ButtonTextFields">
 
@@ -144,7 +146,7 @@
                         android:ems="10"
                         android:inputType="textEmailSubject"
                         android:textAllCaps="false"
-                        android:textColor="@color/black"
+                        android:textColor="@color/white"
                         android:textSize="20sp"
                         android:textStyle="normal"
                         tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
@@ -157,7 +159,8 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:hint="@string/message"
-                    app:boxStrokeColor="#4E4A4A"
+                    app:hintTextColor="@color/white"
+                    app:boxStrokeColor="@color/white"
                     app:boxStrokeWidth="1dp"
                     app:shapeAppearanceOverlay="@style/ButtonTextFields">
 
@@ -168,7 +171,7 @@
                         android:ems="10"
                         android:inputType="textMultiLine"
                         android:textAllCaps="false"
-                        android:textColor="@color/black"
+                        android:textColor="@color/white"
                         android:textSize="17sp"
                         android:textStyle="normal"
                         tools:ignore="TextContrastCheck,TouchTargetSizeCheck,VisualLintTextFieldSize" />
@@ -211,7 +214,8 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:hint="@string/search"
-                    app:boxStrokeColor="#4E4A4A"
+                    app:hintTextColor="@color/white"
+                    app:boxStrokeColor="@color/white"
                     app:boxStrokeWidth="1dp"
                     app:shapeAppearanceOverlay="@style/ButtonTextFields">
 
@@ -222,7 +226,7 @@
                         android:ems="10"
                         android:textAllCaps="false"
                         android:inputType="textPersonName"
-                        android:textColor="@color/black"
+                        android:textColor="@color/white"
                         android:textSize="20sp"
                         android:textStyle="normal" />
 
@@ -249,7 +253,8 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:hint="@string/contact_number"
-                    app:boxStrokeColor="#4E4A4A"
+                    app:hintTextColor="@color/white"
+                    app:boxStrokeColor="@color/white"
                     app:boxStrokeWidth="1dp"
                     app:shapeAppearanceOverlay="@style/ButtonTextFields">
 
@@ -259,7 +264,7 @@
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:inputType="number"
-                        android:textColor="@color/black"
+                        android:textColor="@color/white"
                         android:textSize="20sp"
                         android:textStyle="normal" />
 
@@ -301,24 +306,30 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:text="@string/book_share"
                     android:textStyle="bold"
-                    android:text="@string/book_share"/>
+                    android:textColor="@color/textOrange"
+                    tools:ignore="TextContrastCheck" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
+                    android:text="@string/www_book_share_app_com"
                     android:textStyle="bold"
-                    android:text="@string/www_book_share_app_com"/>
+                    android:textColor="@color/white"
+                    tools:ignore="TextContrastCheck" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:paddingBottom="5dp"
+                    android:text="@string/_25_march_2023"
                     android:textStyle="bold"
-                    android:text="@string/_25_march_2023"/>
+                    android:textColor="@color/white"
+                    tools:ignore="TextContrastCheck" />
             </LinearLayout>
 
         </LinearLayout>

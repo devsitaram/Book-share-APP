@@ -14,7 +14,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.bookshare.R;
-import com.sitaram.bookshare.features.firebase.FirebaseInstanceNotificationService;
 import com.sitaram.bookshare.features.login.LoginActivity;
 
 public class SliderActivity extends AppCompatActivity {
@@ -25,12 +24,15 @@ public class SliderActivity extends AppCompatActivity {
     TextView[] dots;
     SliderAdapter sliderAdapter;
     SharedPreferences.Editor editor;
+    int count;
+
     @SuppressLint({"MissingInflatedId", "SetTextI18n"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_slider);
 
+        // initialize the variable
         btnSkip = findViewById(R.id.tvSliderSkip);
         btnBack = findViewById(R.id.tvSliderBack);
         btnNext = findViewById(R.id.tvSliderNext);
@@ -42,30 +44,25 @@ public class SliderActivity extends AppCompatActivity {
         if (hasViewedSlider) {
             startActivity(new Intent(SliderActivity.this, LoginActivity.class));
             finish();
-
         } else {
-            // Show the slider screen
             // skip button
             btnSkip.setOnClickListener(v -> {
-                setNotificationMessage();
                 startActivity(new Intent(SliderActivity.this, LoginActivity.class));
                 finish();
             });
 
             // back button
             btnBack.setOnClickListener(v -> {
-                if (getItem(0)>0){
+                if (getItem(0) > 0) {
                     mSliderViewPager.setCurrentItem(getItem(-1), true);
                 }
             });
 
             // next button
             btnNext.setOnClickListener(v -> {
-                if (getItem(0)<2){
+                if (getItem(0) < 2) {
                     mSliderViewPager.setCurrentItem(getItem(1), true);
                 } else {
-
-                    setNotificationMessage();
                     startActivity(new Intent(SliderActivity.this, LoginActivity.class));
                     finish();
                 }
@@ -88,12 +85,12 @@ public class SliderActivity extends AppCompatActivity {
         }
     }
 
-    public void setUpIndicator(int position){
+    public void setUpIndicator(int position) {
         dots = new TextView[3];
         mDotLayout.removeAllViews();
 
         // using the for loop
-        for (int i=0; i<dots.length; i++){
+        for (int i = 0; i < dots.length; i++) {
             dots[i] = new TextView(this);
             dots[i].setText("\u2022");
             dots[i].setTextSize(35);
@@ -107,19 +104,19 @@ public class SliderActivity extends AppCompatActivity {
     ViewPager.OnPageChangeListener viewListener = new ViewPager.OnPageChangeListener() {
         @Override
         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-            // Do something while the user is scrolling through the ViewPager
+            // the user is scrolling through the ViewPager
         }
 
         @SuppressLint("SetTextI18n")
         @Override
         public void onPageSelected(int position) {
             setUpIndicator(position);
-            if(position>0) {
+            if (position > 0) {
                 btnBack.setVisibility(View.VISIBLE);
             } else {
                 btnBack.setVisibility(View.INVISIBLE);
             }
-            if (position==2) {
+            if (position == 2) {
                 btnNext.setText("Start");
             } else {
                 btnNext.setText("Next");
@@ -131,24 +128,24 @@ public class SliderActivity extends AppCompatActivity {
         }
     };
 
-    private  int getItem(int item){
-        return mSliderViewPager.getCurrentItem()+item;
+    // count the slider item
+    private int getItem(int item) {
+        return mSliderViewPager.getCurrentItem() + item;
     }
 
+    // notification
     private void setNotificationMessage() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Book Share");
         builder.setMessage("Notification's permission!");
         // press the yes the logout the app
         builder.setPositiveButton("ON", (dialog, i) -> {
-            FirebaseInstanceNotificationService notificationService = new FirebaseInstanceNotificationService();
-            notificationService.notification();
-//            return true;
         });
         // press the No then cancel to logout the app
         builder.setNegativeButton("OFF", (DialogInterface dialogInterface, int i) -> {
-            dialogInterface.dismiss();
-//            return false;
+            if (dialogInterface != null) {
+                dialogInterface.dismiss();
+            }
         });
         builder.show();
     }

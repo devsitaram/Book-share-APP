@@ -1,6 +1,7 @@
 package com.sitaram.bookshare.features.database;
 
 import android.content.Context;
+
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
@@ -11,9 +12,9 @@ public abstract class DatabaseHelper extends RoomDatabase {
     private static DatabaseHelper instance;
 
     // this methods are FIFO data
-    public static synchronized DatabaseHelper getInstance(Context context){
+    public static synchronized DatabaseHelper getInstance(Context context) {
         // check the instance is null object
-        if (instance==null){
+        if (instance == null) {
             instance = Room.databaseBuilder(context, DatabaseHelper.class, DB_NAME)
                     .fallbackToDestructiveMigration()
                     .allowMainThreadQueries()
@@ -22,6 +23,6 @@ public abstract class DatabaseHelper extends RoomDatabase {
         return instance;
     }
 
+    // create the abstract methods;
     public abstract UserDao userDao();
-
 }

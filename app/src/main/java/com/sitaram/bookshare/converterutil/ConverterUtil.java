@@ -1,8 +1,11 @@
-package com.sitaram.bookshare.testing;
+package com.sitaram.bookshare.converterutil;
+
+import androidx.annotation.NonNull;
 
 public class ConverterUtil {
 
     // check the email validation
+    @NonNull
     public static String emailValidation(String email) {
         String emailPattern = "[a-zA-Z\\d._-]+@[a-z]+.+[a-z]+";
         if (email.isEmpty()) {
@@ -15,6 +18,7 @@ public class ConverterUtil {
     }
 
     // to check the username validation
+    @NonNull
     public static String usernameValidation(String name) {
         String usernamePattern = "[a-zA-z]+\\s+[a-zA-z]+";
         if (name.isEmpty()) {
@@ -26,6 +30,8 @@ public class ConverterUtil {
         }
     }
 
+    // password check the  empty or not
+    @NonNull
     public static String passwordValidation(String password){
         if (password.isEmpty()) {
             return "Username cannot be empty";

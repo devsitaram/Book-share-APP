@@ -25,7 +25,10 @@ public class LoginPresenter implements LoginContract.Presenter{
             view.showErrorMessage("The fields is empty!"); // unsuccessful message
             return false;
         } else {
-            if (view.emailValidation(email) && view.usernameValidation(username) && view.passwordValidation(password)) {
+            boolean emailValid = view.emailValidation(email);
+            boolean nameValid = view.usernameValidation(username);
+            boolean passwordValid = view.passwordValidation(password);
+            if (emailValid && nameValid && passwordValid) {
                 // call teh registerUserUser method
                 view.registerUser(email, username, password);
                 return true;
@@ -36,23 +39,26 @@ public class LoginPresenter implements LoginContract.Presenter{
     }
 
     @Override
-    public void loginButtonClick(String username, String password) {
+    public boolean loginButtonClick(String username, String password) {
         if (username.isEmpty() || password.isEmpty()) {
             // call the callLoginAPI methods
             view.showErrorMessage("The field is empty!");
+            return false;
         } else {
-            callLoginDatabase(username, password);
+            return view.login(username,password);
+//            return callLoginDatabase(username, password); // this  method can return the true or false values
         }
     }
 
-    public void callLoginDatabase(String username, String password) {
+    public boolean callLoginDatabase(String username, String password) {
         // call the LoginModel class's method
-//        boolean isSuccessAPI = loginModel.getUser(username, password);
-//        if (isSuccessAPI) {
-//            view.loginSuccessMessage("Login successful.");
-//            view.navigateHomePage();
-//        } else {
-//            view.showErrorMessage("Username and password is not registered.");
-//        }
+        boolean isSuccessAPI = loginModel.loginUser(username, password);
+        if (isSuccessAPI) {
+            view.loginSuccessMessage("Login successful.");
+            return true;
+        } else {
+            view.showErrorMessage("Username and password is not registered.");
+            return false;
+        }
     }
 }

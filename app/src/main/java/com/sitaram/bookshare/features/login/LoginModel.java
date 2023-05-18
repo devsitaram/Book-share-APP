@@ -2,7 +2,14 @@ package com.sitaram.bookshare.features.login;
 
 import android.content.Context;
 
-public class LoginModel implements LoginContract.Model{
+import com.sitaram.bookshare.features.database.User;
+import com.sitaram.bookshare.features.database.UserDao;
+
+import java.util.List;
+
+import io.reactivex.rxjava3.core.Completable;
+
+public class LoginModel implements LoginContract.Model, UserDao {
 
     Context context;
     public LoginModel(Context context) {
@@ -15,18 +22,30 @@ public class LoginModel implements LoginContract.Model{
      * add the new student data where call the constructor
      * return the abstract databases class's abstract studentDao method's insertAll method which accept the student list
      */
-//        try {
-//            databaseHelper = DatabaseHelper.getInstance(context);
-//            databaseHelper.userDao().insertUser(userList);
-//            return true;
-//        } catch (Exception ex) {
-//            return false;
-//        }
+    UserDao userDao = new UserDao() {
+        @Override
+        public Completable insertUser(List<User> userList) {
+            return null;
+        }
 
+        @Override
+        public boolean loginDetails(String nameName, String userPassword) {
+            return true;
+        }
+    };
 
-//    @Override
-//    public Single<User> getLoginUser(String nameName, String userPassword) {
-////        return userDao.getLoginDetails(nameName, userPassword);
-//        return null;
-//    }
+    @Override
+    public boolean loginUser(String nameName, String userPassword) {
+        return loginDetails(nameName, userPassword);
+    }
+
+    @Override
+    public Completable insertUser(List<User> userList) {
+        return null;
+    }
+
+    @Override
+    public boolean loginDetails(String nameName, String userPassword) {
+        return userDao.loginDetails(nameName,userPassword);
+    }
 }

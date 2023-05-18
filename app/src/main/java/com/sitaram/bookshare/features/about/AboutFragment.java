@@ -2,15 +2,14 @@ package com.sitaram.bookshare.features.about;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.bookshare.R;
 import com.sitaram.bookshare.features.home.HomeFragment;
@@ -26,6 +25,7 @@ public class AboutFragment extends Fragment {
 
     Button btnBackToHome;
     View aView;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +44,7 @@ public class AboutFragment extends Fragment {
         btnBackToHome.setOnClickListener(v -> navigateHome());
     }
 
-    private void navigateHome(){
+    private void navigateHome() {
         // go to the home fragment class
         HomeFragment homeFragment = new HomeFragment();
         @SuppressLint("UseRequireInsteadOfGet")

@@ -6,8 +6,9 @@ public interface LoginContract {
     interface View {
         void loginSuccessMessage(String successMessage);
         void showErrorMessage(String errorMessage);
+        // user data check in the database;
+        boolean login(String userName, String userPassword);
         void navigateHomePage();
-
         // email validation
         boolean emailValidation(String email);
         boolean usernameValidation(String name);
@@ -18,9 +19,11 @@ public interface LoginContract {
     // presenter interface class
     interface Presenter {
         boolean registerButtonClick(String email, String name, String password);
-        void loginButtonClick(String username, String password);
+        boolean loginButtonClick(String username, String password);
     }
 
     // model interface class
-    interface Model {}
+    interface Model {
+        boolean loginUser(String nameName, String userPassword);
+    }
 }

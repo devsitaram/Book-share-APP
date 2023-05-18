@@ -16,6 +16,7 @@ import java.util.List;
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.hViewHolder> {
     Context context;
     List<Books> booksList;
+
     public HomeAdapter(Context context, List<Books> booksList) {
         this.context = context;
         this.booksList = booksList;
@@ -41,6 +42,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.hViewHolder> {
 
     public static class hViewHolder extends RecyclerView.ViewHolder {
         ImageView ivBookImage;
+
         public hViewHolder(@NonNull View itemView) {
             super(itemView);
             ivBookImage = itemView.findViewById(R.id.ivBookItem);

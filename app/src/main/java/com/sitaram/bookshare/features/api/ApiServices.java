@@ -11,10 +11,9 @@ public interface ApiServices {
 
     // local server data
     @Headers({"X-RapidAPI-Key: 71bf5ec090msha9ecf2d7b476478p1f2533jsnd5cef4e5ef55",
-	        "X-RapidAPI-Host: book4.p.rapidapi.com"})
+            "X-RapidAPI-Host: book4.p.rapidapi.com"})
     @GET("books.json")
     Call<BookPojo> getBooks();
-
 
     // API call to get the data where it cannot be get any parameter
 //    @Headers({"X-RapidAPI-Key: 71bf5ec090msha9ecf2d7b476478p1f2533jsnd5cef4e5ef55",

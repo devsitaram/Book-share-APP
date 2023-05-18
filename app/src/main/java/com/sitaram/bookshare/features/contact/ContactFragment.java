@@ -124,7 +124,7 @@ public class ContactFragment extends Fragment {
     private void call() {
         Intent call = new Intent(Intent.ACTION_DIAL);
         String contactNumber = Objects.requireNonNull(inputTextContactNum.getText()).toString();
-        if(!contactNumber.isEmpty()) {
+        if (!contactNumber.isEmpty()) {
             call.setData(Uri.parse("tel: " + contactNumber));
             startActivity(call);
             inputTextContactNum.setText("");
