@@ -181,31 +181,36 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/textOrange"
                     android:padding="10dp"
                     android:layout_marginBottom="5dp"
                     android:orientation="horizontal">
 
-                    <TextView
-                        android:layout_width="200dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:text="@string/use_bookstore_and_get_discount"
-                        android:textColor="#F1F1F1"
-                        tools:ignore="TextSizeCheck,TextContrastCheck" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <ImageView
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/_50"
-                        android:textAlignment="center"
-                        android:textColor="#FFFFFF"
-                        android:textSize="40sp"
-                        android:textStyle="bold"
-                        android:layout_marginTop="-5dp"
-                        tools:ignore="TextContrastCheck" />
+                        android:background="@mipmap/unnamed"
+                        android:contentDescription="@null" />
+
+<!--                    <TextView-->
+<!--                        android:layout_width="200dp"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:layout_marginStart="10dp"-->
+<!--                        android:layout_marginEnd="10dp"-->
+<!--                        android:layout_marginBottom="10dp"-->
+<!--                        android:text="@string/use_bookstore_and_get_discount"-->
+<!--                        android:textColor="#F1F1F1"-->
+<!--                        tools:ignore="TextSizeCheck,TextContrastCheck" />-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="@string/_50"-->
+<!--                        android:textAlignment="center"-->
+<!--                        android:textColor="#FFFFFF"-->
+<!--                        android:textSize="40sp"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:layout_marginTop="-5dp"-->
+<!--                        tools:ignore="TextContrastCheck" />-->
                 </LinearLayout>
             </LinearLayout>
 
