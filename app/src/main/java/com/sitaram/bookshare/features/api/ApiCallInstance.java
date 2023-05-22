@@ -22,6 +22,7 @@ public class ApiCallInstance {
                     .addInterceptor(httpLoggingInterceptor)
                     .build();
 
+            // create an object of the retrofit
             retrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
                     .client(okHttpClient)

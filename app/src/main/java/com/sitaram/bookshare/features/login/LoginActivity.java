@@ -2,6 +2,7 @@ package com.sitaram.bookshare.features.login;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -76,23 +77,23 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         btnSignUp.setOnClickListener(v -> {
             try {
                 Objects.requireNonNull(insertUserData())
-                    .subscribeOn(Schedulers.io())
-                    .subscribe(new CompletableObserver() {
-                        @Override
-                        public void onSubscribe(@NonNull Disposable disposable) {
-                            compositeDisposable.add(disposable);
-                        }
+                        .subscribeOn(Schedulers.io())
+                        .subscribe(new CompletableObserver() {
+                            @Override
+                            public void onSubscribe(@NonNull Disposable disposable) {
+                                compositeDisposable.add(disposable);
+                            }
 
-                        @Override
-                        public void onComplete() {
-                            // recycler view
-                        }
+                            @Override
+                            public void onComplete() {
+                                // recycler view
+                            }
 
-                        @Override
-                        public void onError(@NonNull Throwable e) {
+                            @Override
+                            public void onError(@NonNull Throwable e) {
 
-                        }
-                    });
+                            }
+                        });
             } catch (NullPointerException exception) {
                 showErrorMessage(String.valueOf(exception));
             }
@@ -100,6 +101,25 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
 
         // login button
         btnLogin.setOnClickListener(v -> getLogin());
+
+
+        // login with gmail
+        btnGmail.setOnClickListener(view -> {
+            // go the facebook page
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.gamil.com")));
+        });
+
+        // login with facebook
+        btnFacebook.setOnClickListener(view -> {
+            // go the facebook page
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com")));
+        });
+
+        // login with twitter
+        btnTwitter.setOnClickListener(view -> {
+            // go the facebook page
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.twitter.com")));
+        });
     }
 
     // email validation
@@ -190,8 +210,8 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         userName = Objects.requireNonNull(editLoginUsername.getText()).toString().trim();
         userPassword = Objects.requireNonNull(editLoginPassword.getText()).toString().trim();
         // check the username and password
-        boolean isValidLogin = loginPresenter.loginButtonClick(userName,userPassword);
-        if (isValidLogin){
+        boolean isValidLogin = loginPresenter.loginButtonClick(userName, userPassword);
+        if (isValidLogin) {
             navigateHomePage();
             loginSuccessMessage("Login Successful.");
         } else {
@@ -201,7 +221,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
 
     // user data check in the database;
     @Override
-    public boolean login(String userName, String userPassword){
+    public boolean login(String userName, String userPassword) {
         if (databaseHelper.userDao().loginDetails(userName, userPassword)) {
             loginSuccessMessage("Login success");
             return true;
@@ -253,27 +273,3 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         btnShowLogInPage.setTextColor(getResources().getColor(R.color.textOrange, null));
     }
 }
-
-
-// login with another application
-//        btnGmail.setOnClickListener(new View.OnClickListener() {
-//@Override
-//public void onClick(View view) {
-//        // go the facebook page
-//        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.gamil.com")));
-//        }
-//        });
-//        btnFacebook.setOnClickListener(new View.OnClickListener() {
-//@Override
-//public void onClick(View view) {
-//        // go the facebook page
-//        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com")));
-//        }
-//        });
-//        btnTwitter.setOnClickListener(new View.OnClickListener() {
-//@Override
-//public void onClick(View view) {
-//        // go the facebook page
-//        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.twitter.com")));
-//        }
-//        });

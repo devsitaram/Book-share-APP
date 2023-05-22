@@ -1,8 +1,6 @@
 package com.sitaram.bookshare.features.slider;
 
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -131,22 +129,5 @@ public class SliderActivity extends AppCompatActivity {
     // count the slider item
     private int getItem(int item) {
         return mSliderViewPager.getCurrentItem() + item;
-    }
-
-    // notification
-    private void setNotificationMessage() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Book Share");
-        builder.setMessage("Notification's permission!");
-        // press the yes the logout the app
-        builder.setPositiveButton("ON", (dialog, i) -> {
-        });
-        // press the No then cancel to logout the app
-        builder.setNegativeButton("OFF", (DialogInterface dialogInterface, int i) -> {
-            if (dialogInterface != null) {
-                dialogInterface.dismiss();
-            }
-        });
-        builder.show();
     }
 }
