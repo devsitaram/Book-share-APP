@@ -17,6 +17,7 @@ public class ApiCallInstance {
         if (retrofit == null) {
             HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
             httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+
             // create object of okHttpClient
             OkHttpClient okHttpClient = new OkHttpClient.Builder()
                     .addInterceptor(httpLoggingInterceptor)

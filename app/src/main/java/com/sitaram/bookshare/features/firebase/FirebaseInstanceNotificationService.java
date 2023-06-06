@@ -25,19 +25,19 @@ public class FirebaseInstanceNotificationService extends FirebaseMessagingServic
 
     public void notification() {
         FirebaseMessaging
-                .getInstance()
-                .getToken()
-                .addOnCompleteListener(task -> {
-                    if (!task.isSuccessful()) {
-                        Log.e("Error Message", Objects.requireNonNull(task.getException()).getLocalizedMessage());
-                    }
-                    // get new FCM registration token
-                    String token = task.getResult();
-                    getSendToServer(token);
+            .getInstance()
+            .getToken()
+            .addOnCompleteListener(task -> {
+                if (!task.isSuccessful()) {
+                    Log.e("Error Message", Objects.requireNonNull(task.getException()).getLocalizedMessage());
+                }
+                // get new FCM registration token
+                String token = task.getResult();
+                getSendToServer(token);
 
-                    //  String message = getString(R.string.notification, token);
-                    Log.d("Token", token);
-                });
+                //  String message = getString(R.string.notification, token);
+                Log.d("Token", token);
+            });
     }
 
     public void getSendToServer(String token) {
