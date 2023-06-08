@@ -116,7 +116,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         });
 
         // login with twitter
-        btnTwitter.setOnClickListener(view -> {
+        btnTwitter.setOnClickListener((View view) -> {
             // go the facebook page
             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.twitter.com")));
         });
@@ -199,7 +199,6 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
             return null;
         }
     }
-
     @Override
     public void registerUser(String email, String username, String password) {
         userDataList = new ArrayList<>();

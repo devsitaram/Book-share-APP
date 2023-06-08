@@ -29,7 +29,7 @@ public class LoginModel implements LoginContract.Model, UserDao {
         }
 
         @Override
-        public boolean loginDetails(String nameName, String userPassword) {
+        public boolean loginDetails(String userName, String userPassword) {
             return true;
         }
     };

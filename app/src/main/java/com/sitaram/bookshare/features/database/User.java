@@ -6,6 +6,8 @@ import androidx.room.PrimaryKey;
 
 @Entity(tableName = "user")
 public class User {
+
+    // initialize the variable
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "user_id")
     public int id;

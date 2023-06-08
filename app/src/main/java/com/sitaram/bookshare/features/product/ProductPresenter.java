@@ -18,19 +18,23 @@ public class ProductPresenter implements ProductContract.Presenter{
         this.mView = mView;
     }
 
+    // to check the API call response
     @Override
     public void setBooks() {
         productModel.getBooks().enqueue(new Callback<BookPojo>() {
             @Override
             public void onResponse(@NonNull Call<BookPojo> call, @NonNull Response<BookPojo> response) {
                 if (response.isSuccessful()) {
+                    // set the response is setBook with response.body()
                     mView.setBooks(response.body());
                     mView.successMessage("Api call Success.");
                 } else {
+                    // show error message
                     mView.errorMessage("Api call BookPojo is unsuccessful.");
                 }
             }
 
+            // display the failed message
             @Override
             public void onFailure(@NonNull Call<BookPojo> call, @NonNull Throwable throwable) {
                 throwable.printStackTrace();
