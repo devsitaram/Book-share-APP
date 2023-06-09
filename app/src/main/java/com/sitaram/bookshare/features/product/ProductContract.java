@@ -6,6 +6,7 @@ import retrofit2.Call;
 
 public interface ProductContract {
 
+    // interface View
     interface View {
         void successMessage(String success);
 
@@ -15,11 +16,13 @@ public interface ProductContract {
 
     }
 
+    // interface Presenter
     interface Presenter {
         void setBooks();
 //        void setSearchBooks(String query);
     }
 
+    // interface Model
     interface Model {
         Call<BookPojo> getBooks();
 

@@ -100,10 +100,12 @@ public class ProductFragment extends Fragment implements ProductContract.View {
     // google search
     public void bookFromSearch(String searchText) {
         try {
+            // implicit intent for google search
             Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
             intent.putExtra(SearchManager.QUERY, searchText);
             startActivity(intent);
         } catch (Exception ex) {
+            // show the exception
             ex.printStackTrace();
             bookFromSearch(searchText); // recall the methods
         }

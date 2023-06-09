@@ -10,7 +10,7 @@ public class ApiCallInstance {
 
 //    private static final String BASE_URL = "https://book4.p.rapidapi.com/"; // API base URL
 //    private static final String BASE_URL = "http://100.64.235.184/sitaram/"; // college
-    private static final String BASE_URL = "http://172.16.0.85/sitaram/"; // skill
+    private static final String BASE_URL = "http://172.16.0.85/sitaram/"; // skill network
 
     // create the instance of Retrofit
     public static Retrofit getRetrofitInstance() {
@@ -30,6 +30,7 @@ public class ApiCallInstance {
                     .addConverterFactory(GsonConverterFactory.create()) // converter
                     .build();
         }
+        // return the retrofit
         return retrofit;
     }
 }
