@@ -23,6 +23,7 @@ import java.util.List;
 
 public class SettingActivity extends AppCompatActivity {
 
+    // initialize the variable
     RecyclerView sRecyclerView;
     List<SettingPojo> settingPojoList;
     Button btnBackToHome, btnLogout;
@@ -43,7 +44,7 @@ public class SettingActivity extends AppCompatActivity {
         btnBackToHome.setOnClickListener(v -> navigateHomePage());
         btnLogout.setOnClickListener(v -> setLogoutAlertDialog());
 
-
+        // create the notification button
         switchNotification.setOnClickListener(v -> {
             if (switchNotification.isChecked()) {
                 FirebaseInstanceNotificationService notificationService = new FirebaseInstanceNotificationService();
@@ -81,6 +82,7 @@ public class SettingActivity extends AppCompatActivity {
         sRecyclerView.addItemDecoration(dividerItemDecoration);
     }
 
+    // logout dialog box options
     private void setLogoutAlertDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(SettingActivity.this);
         builder.setTitle("Log out?");
