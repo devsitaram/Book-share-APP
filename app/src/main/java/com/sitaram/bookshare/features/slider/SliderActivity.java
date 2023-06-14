@@ -22,7 +22,6 @@ public class SliderActivity extends AppCompatActivity {
     TextView[] dots;
     SliderAdapter sliderAdapter;
     SharedPreferences.Editor editor;
-    int count;
 
     @SuppressLint({"MissingInflatedId", "SetTextI18n"})
     @Override

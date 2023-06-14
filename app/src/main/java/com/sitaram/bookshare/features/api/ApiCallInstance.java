@@ -15,6 +15,7 @@ public class ApiCallInstance {
     // create the instance of Retrofit
     public static Retrofit getRetrofitInstance() {
         if (retrofit == null) {
+            // create the object of httpLoggingInterceptor
             HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
             httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 

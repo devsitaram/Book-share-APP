@@ -20,6 +20,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         // notification
         FirebaseInstanceNotificationService notificationService = new FirebaseInstanceNotificationService();
         notificationService.notification();
+
         // use the postDelayed
         new Handler().postDelayed(() -> {
             Intent intentSlider = new Intent(SplashScreenActivity.this, SliderActivity.class);
