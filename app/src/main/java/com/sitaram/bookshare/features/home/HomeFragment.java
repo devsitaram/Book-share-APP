@@ -43,7 +43,6 @@ public class HomeFragment extends Fragment implements HomeContract.View {
     BottomNavigationView bottomNavigationView;
     FragmentTransaction fragmentTransaction;
     View hView;
-
     HomePresenter homePresenter = new HomePresenter(this);
 
     @Override

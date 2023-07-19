@@ -70,6 +70,5 @@ public class TrendingBookFragment extends Fragment implements ProductContract.Vi
 //        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         bRecyclerView.setLayoutManager(linearLayoutManager);
         bookAdapter.notifyDataSetChanged();
-
     }
 }

@@ -36,6 +36,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+
         BooksItem book = bookPojoList.get(position);
         holder.tvAuther.setText("Author: " + book.getAuthor());
         holder.tvId.setText("Book Id: " + book.getId());

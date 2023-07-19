@@ -38,6 +38,7 @@ public class SliderActivity extends AppCompatActivity {
         // SharedPreferences
         SharedPreferences sharedPreferences = getSharedPreferences("SelfPrefs", MODE_PRIVATE);
         boolean hasViewedSlider = sharedPreferences.getBoolean("has_viewed_slider", false);
+
         if (hasViewedSlider) {
             startActivity(new Intent(SliderActivity.this, LoginActivity.class));
             finish();

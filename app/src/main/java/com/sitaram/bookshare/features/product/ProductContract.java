@@ -19,7 +19,6 @@ public interface ProductContract {
     // interface Presenter
     interface Presenter {
         void setBooks();
-//        void setSearchBooks(String query);
     }
 
     // interface Model
